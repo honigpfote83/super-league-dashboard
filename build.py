@@ -112,6 +112,13 @@ def prepare_logo(filename, warnings):
 
 def main():
     warnings = []
+    data_path = os.path.join(HERE, "data.json")
+    prev = {}
+    if os.path.exists(data_path):
+        try:
+            prev = json.load(open(data_path, encoding="utf-8"))
+        except Exception:                            # noqa: BLE001
+            pass
 
     contest = get("%s/football/%s?lang=de" % (BASE, CONTEST))
     if not contest:
@@ -184,20 +191,37 @@ def main():
                     "gd": it.get("goalDifference"),
                 })
 
+    # Die API laesst bei einzelnen Spielern sporadisch das team-Objekt weg.
+    # Dann den zuletzt bekannten Verein weiterverwenden, statt ihn zu verlieren.
+    known_team = {}
+    for old_s in prev.get("scorers") or []:
+        if old_s.get("teamFull"):
+            known_team[old_s.get("name")] = (old_s.get("team"), old_s.get("teamFull"))
+
     scorers = []
+    patched = []
     if scorer_rank:
         data = get("%s/rankings/%s?lang=de" % (BASE, scorer_rank["id"]))
         for it in (data or {}).get("rankingItems") or []:
             c = it.get("competitor") or {}
             team = c.get("team") or {}
+            name = ((c.get("firstName") or "") + " " + (c.get("name") or "")).strip()
+            short, full = team.get("shortName") or team.get("name") or "", team.get("name") or ""
+            if not full and name in known_team:
+                short, full = known_team[name]
+                patched.append(name)
             scorers.append({
-                "rank": it.get("rank"),
-                "name": ((c.get("firstName") or "") + " " + (c.get("name") or "")).strip(),
-                "team": team.get("shortName") or team.get("name") or "",
-                "teamFull": team.get("name") or "",
+                "rank": it.get("rank"), "name": name,
+                "team": short, "teamFull": full,
                 "goals": it.get("scorerGoals") or it.get("points") or 0,
                 "country": c.get("countryName"),
             })
+    if patched:
+        warnings.append("Torschuetzenliste ohne Verein von der API, aus dem letzten Stand ergaenzt: %s"
+                        % ", ".join(sorted(set(patched))))
+    no_team = [x["name"] for x in scorers if not x["teamFull"]]
+    if no_team:
+        warnings.append("Torschuetzen ohne bekannten Verein: %s" % ", ".join(sorted(set(no_team))[:10]))
 
     # Teams aus den Spielen ableiten (nicht aus der Tabelle) -> ueberlebt Saisonstart
     names = sorted({m["home"] for m in matches} | {m["away"] for m in matches})
@@ -280,14 +304,7 @@ def main():
                          ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     out["fingerprint"] = hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
 
-    prev_fp, prev_updated = None, None
-    data_path = os.path.join(HERE, "data.json")
-    if os.path.exists(data_path):
-        try:
-            prev = json.load(open(data_path, encoding="utf-8"))
-            prev_fp, prev_updated = prev.get("fingerprint"), prev.get("updated")
-        except Exception:                            # noqa: BLE001
-            pass
+    prev_fp, prev_updated = prev.get("fingerprint"), prev.get("updated")
 
     changed = out["fingerprint"] != prev_fp
     out["checked"] = time.strftime("%Y-%m-%dT%H:%M:%S")
