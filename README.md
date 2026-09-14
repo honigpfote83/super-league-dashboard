@@ -42,6 +42,29 @@ Ein neues Logo austauschen: Datei in `logos/` legen, den Namen in `clubs.json` e
 `build.py` laufen lassen. Beim Publizieren muss die geänderte Datei aus `web-logos/` dann
 einmal mitgegeben werden.
 
+## Spieler, die die Liga verlassen
+
+Wechselt ein Spieler waehrend der Saison aus der Liga, bleiben seine Tore in der Wertung,
+aber die API nennt irgendwann keinen Verein mehr. Solche Spieler erscheinen weiterhin in
+der Torschuetzenliste, mit ihrem letzten bekannten Verein und der Markierung `(ehem.)`.
+
+`build.py` erkennt das auf zwei Wegen:
+
+1. **Automatisch**, wenn die API keinen Verein mehr nennt. Das ist nur ein Indiz — die API
+   laesst das Feld gelegentlich auch bei aktiven Spielern kurzzeitig weg. Die Markierung
+   verschwindet daher von selbst wieder, sobald ein Verein zurueckkommt.
+2. **Von Hand** ueber die Liste `departed` in `clubs.json`. Namen dort werden immer als
+   ehemalig markiert, unabhaengig davon, was die API sagt. Name genau so schreiben wie in
+   der Torschuetzenliste; Tippfehler meldet `build.py` als Warnung.
+
+```json
+"departed": ["Joël Monteiro", "Layton Stewart"]
+```
+
+Der letzte bekannte Verein stammt aus `data.json` des vorherigen Laufs. Loescht man
+`data.json`, geht er verloren und der Spieler erscheint ohne Verein — dann aus der
+Git-Historie zurueckholen.
+
 ## Wie die Daten geholt werden
 
 Die SRF-Seite rendert alles per JavaScript; ein einfacher Seitenabruf liefert nichts.

@@ -320,7 +320,9 @@ footer a{color:var(--ink-2)}
       </div>
       <div>
         <div class="sec-head"><h2>Torschützen</h2></div>
-        <p class="note">Führende der Ligastatistik von SRF.</p>
+        <p class="note">Führende der Ligastatistik von SRF. Wer die Liga während der Saison
+          verlassen hat, bleibt mit seinen Toren in der Wertung; sein letzter Verein ist
+          mit <b>ehem.</b> markiert und das Logo abgeschwächt.</p>
         <div class="chart" id="c-scorers"></div>
       </div>
     </div>
@@ -589,7 +591,8 @@ const played = FIN.length, total = D.matches.length;
     ["Heimsiege", Math.round(hw/played*100) + "%", hw + " S · " + dr + " U · " + (played-hw-dr) + " N"],
     ["Zuschauer", nInt(att), "Ø " + nInt(Math.round(att/attN)) + " pro Spiel"],
     ["Torschützenkönig", (D.scorers[0] ? D.scorers[0].goals + " Tore" : "—"),
-      D.scorers[0] ? D.scorers[0].name + " · " + D.scorers[0].team : ""]
+      D.scorers[0] ? D.scorers[0].name + (D.scorers[0].team ? " · " + D.scorers[0].team : "") +
+        (D.scorers[0].former ? " (ehem.)" : "") : ""]
   ];
   document.getElementById("strip").innerHTML = cells.map(c =>
     '<div class="cell"><div class="k">' + esc(c[0]) + '</div><div class="v">' + c[1] +
@@ -1137,7 +1140,8 @@ function drawScorers(host, W){
   W = Math.max(300, W);
   const top = D.scorers.filter(p => p.goals >= 3).slice(0, 14);
   if (!top.length){ host.innerHTML = '<p class="note small" style="padding:14px">Noch keine Torschützenliste verfügbar.</p>'; return; }
-  const m = {t: 10, r: 96, b: 30, l: 150}, rowH = 24;
+  const anyFormer = top.some(p => p.former);
+  const m = {t: 10, r: anyFormer ? 140 : 96, b: 30, l: 150}, rowH = 24;
   const H = m.t + top.length*rowH + m.b, iw = W - m.l - m.r;
   const gmax = top[0].goals;
   const sx = v => m.l + v/gmax*iw;
@@ -1150,14 +1154,19 @@ function drawScorers(host, W){
   top.forEach((p,i) => {
     const y = m.t + i*rowH + 4, h = rowH - 10, cy = y + h/2;
     const team = TEAM_BY_SHORT[p.team] || p.teamFull;
-    if (CLUB[team]) s += markG(team, 13, cy, 20);
-    s += label(m.l - 10, cy + 4, p.name, "end", 11.5, "var(--ink)");
-    const tp = '<div class="tt">' + (CLUB[team] ? markHTML(team, 18) : "") + "<span>" + esc(p.name) + "</span></div>" +
-      '<div class="row"><span>' + esc(p.teamFull) + "</span><span><b>" + p.goals + " Tore</b></span></div>" +
+    const has = !!CLUB[team];
+    if (has) s += '<g opacity="' + (p.former ? "0.5" : "1") + '">' + markG(team, 13, cy, 20) + "</g>";
+    s += label(m.l - 10, cy + 4, p.name, "end", 11.5, p.former ? "var(--ink-2)" : "var(--ink)");
+    const tp = '<div class="tt">' + (has ? markHTML(team, 18) : "") + "<span>" + esc(p.name) + "</span></div>" +
+      '<div class="row"><span>' + esc(p.teamFull || "Verein unbekannt") + "</span><span><b>" +
+      p.goals + " Tore</b></span></div>" +
+      (p.former ? '<div class="row"><span style="color:var(--muted)">nicht mehr in der Liga — Tore für diesen Verein erzielt</span></div>' : "") +
       (p.country ? '<div class="row"><span>Nation</span><span>' + esc(p.country) + "</span></div>" : "");
     s += '<rect x="' + m.l + '" y="' + y + '" width="' + Math.max(1.5, sx(p.goals) - m.l).toFixed(1) +
-      '" height="' + h + '" rx="2" fill="var(--seq)" data-tip="' + esc(tp) + '"/>';
-    s += monoText(sx(p.goals) + 8, cy + 4, p.goals + " · " + p.team, "start", 11, "var(--ink-2)", 500);
+      '" height="' + h + '" rx="2" fill="var(--seq)" opacity="' + (p.former ? "0.55" : "1") +
+      '" data-tip="' + esc(tp) + '"/>';
+    const suffix = (p.team ? " · " + p.team : "") + (p.former ? " (ehem.)" : "");
+    s += monoText(sx(p.goals) + 8, cy + 4, p.goals + suffix, "start", 11, "var(--ink-2)", 500);
   });
   host.innerHTML = '<svg viewBox="0 0 ' + W + " " + H + '" width="' + W + '" height="' + H +
     '" style="margin-top:12px" role="img" aria-label="Torschützenliste">' + s + "</svg>";

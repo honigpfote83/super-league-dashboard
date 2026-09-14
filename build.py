@@ -191,15 +191,19 @@ def main():
                     "gd": it.get("goalDifference"),
                 })
 
-    # Die API laesst bei einzelnen Spielern sporadisch das team-Objekt weg.
-    # Dann den zuletzt bekannten Verein weiterverwenden, statt ihn zu verlieren.
+    cfg_early = json.load(open(os.path.join(HERE, "clubs.json"), encoding="utf-8"))
+    departed = set(cfg_early.get("departed") or [])
+
+    # Die API nennt keinen Verein mehr, sobald ein Spieler die Liga verlassen hat
+    # (Transfer waehrend der Saison). Seine Tore bleiben in der Wertung. Wir fuehren
+    # deshalb den zuletzt bekannten Verein weiter und markieren ihn als ehemaligen.
     known_team = {}
     for old_s in prev.get("scorers") or []:
         if old_s.get("teamFull"):
             known_team[old_s.get("name")] = (old_s.get("team"), old_s.get("teamFull"))
 
     scorers = []
-    patched = []
+    left, unknown = [], []
     if scorer_rank:
         data = get("%s/rankings/%s?lang=de" % (BASE, scorer_rank["id"]))
         for it in (data or {}).get("rankingItems") or []:
@@ -207,21 +211,32 @@ def main():
             team = c.get("team") or {}
             name = ((c.get("firstName") or "") + " " + (c.get("name") or "")).strip()
             short, full = team.get("shortName") or team.get("name") or "", team.get("name") or ""
-            if not full and name in known_team:
-                short, full = known_team[name]
-                patched.append(name)
-            scorers.append({
+            former = (not full) or name in departed
+            if former:
+                # Die API-Erkennung ist nicht sticky: nennt sie spaeter wieder einen Verein,
+                # faellt die Markierung weg — ausser der Name steht in clubs.json unter "departed".
+                if not full:
+                    short, full = known_team.get(name, ("", ""))
+                (left if full else unknown).append(name)
+            entry = {
                 "rank": it.get("rank"), "name": name,
                 "team": short, "teamFull": full,
                 "goals": it.get("scorerGoals") or it.get("points") or 0,
                 "country": c.get("countryName"),
-            })
-    if patched:
-        warnings.append("Torschuetzenliste ohne Verein von der API, aus dem letzten Stand ergaenzt: %s"
-                        % ", ".join(sorted(set(patched))))
-    no_team = [x["name"] for x in scorers if not x["teamFull"]]
-    if no_team:
-        warnings.append("Torschuetzen ohne bekannten Verein: %s" % ", ".join(sorted(set(no_team))[:10]))
+            }
+            if former:
+                entry["former"] = True
+            scorers.append(entry)
+    if left:
+        warnings.append("Nicht mehr in der Liga, letzter bekannter Verein wird als 'ehem.' gezeigt: %s"
+                        % ", ".join(sorted(set(left))))
+    if unknown:
+        warnings.append("Torschuetzen ohne Verein und ohne frueheren Stand: %s"
+                        % ", ".join(sorted(set(unknown))[:10]))
+    stray = departed - {x["name"] for x in scorers}
+    if stray:
+        warnings.append("In clubs.json unter 'departed' aufgefuehrt, aber nicht in der "
+                        "Torschuetzenliste (Tippfehler?): %s" % ", ".join(sorted(stray)))
 
     # Teams aus den Spielen ableiten (nicht aus der Tabelle) -> ueberlebt Saisonstart
     names = sorted({m["home"] for m in matches} | {m["away"] for m in matches})
@@ -232,7 +247,7 @@ def main():
     teams = [{"name": n, "short": shorts.get(n, n)} for n in names]
 
     # Vereinsfarben anhaengen
-    cfg = json.load(open(os.path.join(HERE, "clubs.json"), encoding="utf-8"))
+    cfg = cfg_early
     club_map, fallback = cfg["clubs"], cfg["fallback"]
     SURFACE_LIGHT, SURFACE_DARK = "#fdfcfc", "#1b1a19"
     for t in teams:

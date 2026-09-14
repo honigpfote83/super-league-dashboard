@@ -104,5 +104,10 @@
       "#5c5952",
       "#b3aea4"
     ]
-  }
+  },
+  "departed": [
+    "Joël Monteiro",
+    "Layton Stewart"
+  ],
+  "_readme_departed": "Spieler, die die Liga waehrend der Saison verlassen haben. Ihre Tore bleiben in der Wertung, der letzte bekannte Verein wird mit '(ehem.)' markiert. Namen genau so schreiben wie in der Torschuetzenliste. build.py markiert zusaetzlich automatisch jeden, fuer den die API keinen Verein mehr nennt."
 }
