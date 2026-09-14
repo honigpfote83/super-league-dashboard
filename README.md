@@ -44,26 +44,43 @@ einmal mitgegeben werden.
 
 ## Spieler, die die Liga verlassen
 
-Wechselt ein Spieler waehrend der Saison aus der Liga, bleiben seine Tore in der Wertung,
-aber die API nennt irgendwann keinen Verein mehr. Solche Spieler erscheinen weiterhin in
-der Torschuetzenliste, mit ihrem letzten bekannten Verein und der Markierung `(ehem.)`.
+Wechselt ein Spieler waehrend der Saison aus der Liga, bleiben seine Tore in der Wertung.
+Solche Spieler erscheinen weiterhin in der Torschuetzenliste, mit ihrem letzten Verein und
+der Markierung `(ehem.)`: Logo abgeschwaecht, Balken heller, Name gedaempft.
 
-`build.py` erkennt das auf zwei Wegen:
-
-1. **Automatisch**, wenn die API keinen Verein mehr nennt. Das ist nur ein Indiz — die API
-   laesst das Feld gelegentlich auch bei aktiven Spielern kurzzeitig weg. Die Markierung
-   verschwindet daher von selbst wieder, sobald ein Verein zurueckkommt.
-2. **Von Hand** ueber die Liste `departed` in `clubs.json`. Namen dort werden immer als
-   ehemalig markiert, unabhaengig davon, was die API sagt. Name genau so schreiben wie in
-   der Torschuetzenliste; Tippfehler meldet `build.py` als Warnung.
+Verbindlich ist allein die Liste `departed` in `clubs.json`:
 
 ```json
 "departed": ["Joël Monteiro", "Layton Stewart"]
 ```
 
-Der letzte bekannte Verein stammt aus `data.json` des vorherigen Laufs. Loescht man
-`data.json`, geht er verloren und der Spieler erscheint ohne Verein — dann aus der
-Git-Historie zurueckholen.
+Name genau so schreiben wie in der Torschuetzenliste; Tippfehler meldet `build.py` als
+Warnung. Es gibt **keine** automatische Erkennung — siehe naechster Abschnitt.
+
+## Vorsicht bei der Vereinszuordnung der Torschuetzen
+
+Der Endpunkt `/v1/rankings/<Torschuetzen-ID>` ist bei der Vereinszuordnung unzuverlaessig.
+Beobachtet am 14.09.2026 innerhalb weniger Minuten:
+
+- Zan Celar wurde mal als Lugano, mal als Basel gemeldet.
+- Layton Stewart und Joël Monteiro hatten zeitweise gar kein Team, kurz darauf wieder eines.
+- Innerhalb eines Bursts von 20 Abrufen war die Antwort dagegen jedes Mal identisch — die
+  Daten werden also stromaufwaerts umgeschrieben, sie flackern nicht pro Anfrage.
+
+Daraus folgt: **Aus einem fehlenden Verein laesst sich nicht schliessen, dass ein Spieler
+die Liga verlassen hat.** Eine frueher eingebaute Heuristik in diese Richtung wurde wieder
+entfernt, weil sie nachweislich falsche Treffer produziert hat.
+
+`build.py` beschraenkt sich deshalb darauf:
+
+- Fehlt ein Verein, wird der letzte bekannte aus `data.json` verwendet und gemeldet.
+- Aendert die API einen Verein gegenueber dem letzten Stand, kommt eine Warnung zum
+  Nachpruefen — das kann ein echter Transfer sein oder eben nicht.
+- Spielerfelder wandern sonst unveraendert aus der API in die Seite.
+
+Alle anderen Daten dieser Seite (Resultate, Tabelle, Tore, Zuschauer) stammen aus
+`/v1/eventItems` und waren durchgehend stabil und mit dem offiziellen SRF-Klassement
+deckungsgleich.
 
 ## Wie die Daten geholt werden
 

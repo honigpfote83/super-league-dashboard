@@ -194,16 +194,18 @@ def main():
     cfg_early = json.load(open(os.path.join(HERE, "clubs.json"), encoding="utf-8"))
     departed = set(cfg_early.get("departed") or [])
 
-    # Die API nennt keinen Verein mehr, sobald ein Spieler die Liga verlassen hat
-    # (Transfer waehrend der Saison). Seine Tore bleiben in der Wertung. Wir fuehren
-    # deshalb den zuletzt bekannten Verein weiter und markieren ihn als ehemaligen.
+    # Die Vereinszuordnung dieses Endpunkts ist unzuverlaessig: sie wird stromaufwaerts
+    # ueber Minuten hinweg umgeschrieben und faellt gelegentlich ganz weg. Deshalb keine
+    # Schlussfolgerungen daraus ziehen — fehlt ein Verein, den letzten bekannten Stand
+    # weiterverwenden und es melden. Wer die Liga verlassen hat, steht in clubs.json
+    # unter "departed"; das ist die einzige verbindliche Quelle dafuer.
     known_team = {}
     for old_s in prev.get("scorers") or []:
         if old_s.get("teamFull"):
             known_team[old_s.get("name")] = (old_s.get("team"), old_s.get("teamFull"))
 
     scorers = []
-    left, unknown = [], []
+    filled, unknown, moved = [], [], []
     if scorer_rank:
         data = get("%s/rankings/%s?lang=de" % (BASE, scorer_rank["id"]))
         for it in (data or {}).get("rankingItems") or []:
@@ -211,28 +213,29 @@ def main():
             team = c.get("team") or {}
             name = ((c.get("firstName") or "") + " " + (c.get("name") or "")).strip()
             short, full = team.get("shortName") or team.get("name") or "", team.get("name") or ""
-            former = (not full) or name in departed
-            if former:
-                # Die API-Erkennung ist nicht sticky: nennt sie spaeter wieder einen Verein,
-                # faellt die Markierung weg — ausser der Name steht in clubs.json unter "departed".
-                if not full:
-                    short, full = known_team.get(name, ("", ""))
-                (left if full else unknown).append(name)
+            if not full:
+                short, full = known_team.get(name, ("", ""))
+                (filled if full else unknown).append(name)
+            elif name in known_team and known_team[name][1] != full:
+                moved.append("%s: %s -> %s" % (name, known_team[name][1], full))
             entry = {
                 "rank": it.get("rank"), "name": name,
                 "team": short, "teamFull": full,
                 "goals": it.get("scorerGoals") or it.get("points") or 0,
                 "country": c.get("countryName"),
             }
-            if former:
+            if name in departed:
                 entry["former"] = True
             scorers.append(entry)
-    if left:
-        warnings.append("Nicht mehr in der Liga, letzter bekannter Verein wird als 'ehem.' gezeigt: %s"
-                        % ", ".join(sorted(set(left))))
+    if filled:
+        warnings.append("Verein fehlte im Abruf, letzter bekannter Stand verwendet: %s"
+                        % ", ".join(sorted(set(filled))))
     if unknown:
         warnings.append("Torschuetzen ohne Verein und ohne frueheren Stand: %s"
                         % ", ".join(sorted(set(unknown))[:10]))
+    if moved:
+        warnings.append("Vereinswechsel laut API (pruefen, der Endpunkt ist hier unzuverlaessig): %s"
+                        % " | ".join(sorted(moved)))
     stray = departed - {x["name"] for x in scorers}
     if stray:
         warnings.append("In clubs.json unter 'departed' aufgefuehrt, aber nicht in der "
@@ -332,7 +335,10 @@ def main():
     html_path = os.path.join(HERE, "super-league-dashboard.html")
     tpl_path = os.path.join(HERE, "template.html")
     tpl = open(tpl_path, encoding="utf-8").read()
-    html = tpl.replace("__DATA__", json.dumps(out, ensure_ascii=False, separators=(",", ":")))
+    # "checked" und "warnings" gehoeren in data.json, nicht in die Seite: sonst
+    # unterscheidet sich das HTML bei jedem Lauf, obwohl die Seite identisch aussieht.
+    page_data = {k: v for k, v in out.items() if k not in ("checked", "warnings")}
+    html = tpl.replace("__DATA__", json.dumps(page_data, ensure_ascii=False, separators=(",", ":")))
     # Auch neu rendern, wenn das Template neuer ist als die Ausgabe oder diese fehlt
     stale = (not os.path.exists(html_path)
              or os.path.getmtime(tpl_path) > os.path.getmtime(html_path))
