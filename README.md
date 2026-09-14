@@ -5,6 +5,27 @@ den Einzelresultaten des SRF Resultcenters.
 
 **Live:** https://claude.ai/code/artifact/7996fa1d-ab32-48f8-93b3-84defa8d0bab
 
+## Aktualisieren
+
+Claude Code in diesem Ordner starten und sagen:
+
+> Aktualisiere das Dashboard.
+
+Das ist alles. Claude ruft `python3 build.py` auf und publiziert bei neuen Daten neu.
+
+Von Hand geht es genauso:
+
+```sh
+python3 build.py
+```
+
+Die letzte Ausgabezeile ist `CHANGED` oder `UNCHANGED`. Bei `CHANGED` muss
+`super-league-dashboard.html` mit dem Artifact-Werkzeug auf die obige URL publiziert
+werden (`file_path` und `url` setzen, sonst nichts — die bereits publizierten Logos
+unter `web-logos/` bleiben dann erhalten).
+
+Es läuft bewusst **kein** Zeitplan und keine Automatik.
+
 ## Dateien
 
 | Datei | Zweck |
@@ -12,29 +33,14 @@ den Einzelresultaten des SRF Resultcenters.
 | `build.py` | Holt die Daten, prüft sie und rendert das Dashboard. Einziges Skript, das man braucht. |
 | `template.html` | Die Seite. Enthält den Platzhalter `__DATA__`, den `build.py` mit den Daten füllt. |
 | `clubs.json` | Vereinsfarben (`ink`) und Logodateinamen. Von Hand gepflegt. |
-| `logos/` | Original-Logodateien von FootyLogos.com. Werden nicht verändert. |
+| `logos/` | Original-Logodateien von FootyLogos.com. Werden nie verändert. |
 | `web-logos/` | Von `build.py` erzeugte, publizierbare Kopien (SVGs ohne DOCTYPE/Skripte). Nicht von Hand bearbeiten. |
 | `data.json` | Letzter Datenstand inkl. Fingerabdruck für die Änderungserkennung. |
 | `super-league-dashboard.html` | Das fertige Dashboard. Diese Datei wird publiziert. |
-| `update.sh` | Ruft `build.py` auf und protokolliert nach `update.log`. Für den Zeitplan gedacht. |
 
-## Aktualisieren
-
-```sh
-python3 build.py
-```
-
-Gibt am Ende `CHANGED` oder `UNCHANGED` aus. Bei `CHANGED` das Dashboard neu publizieren —
-in Claude Code in diesem Ordner genügt:
-
-> Publiziere das Dashboard neu.
-
-Claude ruft dann das Artifact-Tool mit `file_path=super-league-dashboard.html` und der
-oben genannten URL auf. Die Logos in `web-logos/` müssen nur mit, wenn sich dort etwas
-geändert hat — sonst bleiben die bereits publizierten Dateien bestehen.
-
-`update.sh` macht dasselbe wie `build.py`, schreibt aber zusätzlich `update.log` und legt
-bei neuen Daten die Markerdatei `.needs-publish` an.
+Ein neues Logo austauschen: Datei in `logos/` legen, den Namen in `clubs.json` eintragen,
+`build.py` laufen lassen. Beim Publizieren muss die geänderte Datei aus `web-logos/` dann
+einmal mitgegeben werden.
 
 ## Wie die Daten geholt werden
 
@@ -42,7 +48,7 @@ Die SRF-Seite rendert alles per JavaScript; ein einfacher Seitenabruf liefert ni
 `build.py` spricht deshalb direkt die öffentliche Sport-API von Swisstxt an, die dahinter
 steckt:
 
-1. `GET /v1/football/super-league?lang=de` — liefert die Wettbewerbsstruktur. Daraus werden
+1. `GET /v1/football/super-league?lang=de` — die Wettbewerbsstruktur. Daraus werden
    **alle Runden-Phasen und die Ranking-IDs entdeckt**, nichts ist fest verdrahtet. Das
    überlebt einen Saisonwechsel und die Teilung in Championship-/Relegation-Group.
 2. `GET /v1/eventItems?phaseIds=<Runde>&lang=de` — die Spiele je Runde, mit Halbzeitstand,
