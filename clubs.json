@@ -1,0 +1,108 @@
+{
+  "_readme": "Vereinsfarben und Logodateien. 'ink' = [hell, dunkel] fuer Linien und Text (mindestens 3:1 Kontrast gegen die Seitenflaeche — build.py prueft das). 'logo' = Dateiname im Ordner logos/. build.py legt daraus eine bereinigte Kopie in web-logos/ an, die mitpubliziert wird; die Originale bleiben unberuehrt. Logos von FootyLogos.com.",
+  "clubs": {
+    "FC Basel 1893": {
+      "code": "FCB",
+      "ink": [
+        "#003a8c",
+        "#78a6e8"
+      ],
+      "logo": "fc-basel-logo-footylogos.svg"
+    },
+    "BSC Young Boys": {
+      "code": "YB",
+      "ink": [
+        "#8a6d00",
+        "#ffd400"
+      ],
+      "logo": "bsc-young-boys-logo-footylogos.png"
+    },
+    "FC Zürich": {
+      "code": "FCZ",
+      "ink": [
+        "#1a4fa0",
+        "#6fa3e8"
+      ],
+      "logo": "fc-zurich-logo-footylogos.svg"
+    },
+    "Grasshopper Club Zürich": {
+      "code": "GC",
+      "ink": [
+        "#00308f",
+        "#8fb4f0"
+      ],
+      "logo": "grasshopper-club-zurich-logo-footylogos.svg"
+    },
+    "FC Lugano": {
+      "code": "LUG",
+      "ink": [
+        "#1c1c1c",
+        "#e8e6e2"
+      ],
+      "logo": "fc-lugano-logo-footylogos.svg"
+    },
+    "FC Sion": {
+      "code": "SIO",
+      "ink": [
+        "#c8102e",
+        "#f2707a"
+      ],
+      "logo": "fc-sion-logo-footylogos.svg"
+    },
+    "FC St.Gallen 1879": {
+      "code": "SG",
+      "ink": [
+        "#00703c",
+        "#3bb273"
+      ],
+      "logo": "fc-st-gallen-logo-footylogos.svg"
+    },
+    "FC Luzern": {
+      "code": "LUZ",
+      "ink": [
+        "#0a4ea2",
+        "#7fb0ee"
+      ],
+      "logo": "fc-luzern-logo-footylogos.svg"
+    },
+    "Servette FC": {
+      "code": "SER",
+      "ink": [
+        "#8c1d2c",
+        "#d98c98"
+      ],
+      "logo": "servette-fc-logo-footylogos.svg"
+    },
+    "FC Thun": {
+      "code": "THU",
+      "ink": [
+        "#b81f26",
+        "#f08a90"
+      ],
+      "logo": "fc-thun-logo-footylogos.svg"
+    },
+    "FC Vaduz": {
+      "code": "VAD",
+      "ink": [
+        "#8f1020",
+        "#ef8a94"
+      ],
+      "logo": "vaduz-logo-footylogos.svg"
+    },
+    "FC Lausanne-Sport": {
+      "code": "LAU",
+      "ink": [
+        "#00378f",
+        "#8fb4f0"
+      ],
+      "logo": "lausanne-sport-logo-footylogos.svg"
+    }
+  },
+  "fallback": {
+    "code": "???",
+    "ink": [
+      "#5c5952",
+      "#b3aea4"
+    ]
+  }
+}

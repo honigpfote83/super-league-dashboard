@@ -1,0 +1,7 @@
+# Von build.py erzeugt
+web-logos/
+update.log
+update.log.1
+.needs-publish
+__pycache__/
+.DS_Store
