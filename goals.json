@@ -1,0 +1,1541 @@
+{
+ "1844888": {
+  "away": "Grasshopper Club Zürich",
+  "dt": "2026-07-25T18:00:00",
+  "goals": [
+   {
+    "min": "33'",
+    "name": "Ibrahim Bah Mendes",
+    "player": 1137309,
+    "team": "FC Lausanne-Sport",
+    "type": "goal"
+   },
+   {
+    "min": "81'",
+    "name": "Samuele Bengondo",
+    "player": 1137378,
+    "team": "Grasshopper Club Zürich",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Lausanne-Sport"
+ },
+ "1844889": {
+  "away": "FC Thun",
+  "dt": "2026-07-25T20:30:00",
+  "goals": [
+   {
+    "min": "2'",
+    "name": "Stefan Knezevic",
+    "player": 1123886,
+    "team": "FC Luzern",
+    "type": "goal"
+   },
+   {
+    "min": "8'",
+    "name": "Nico Maier",
+    "player": 1086110,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "51'",
+    "name": "Nicolas Bürgy",
+    "player": 72062,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "84'",
+    "name": "Nicolas Bürgy",
+    "player": 72062,
+    "team": "FC Thun",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Luzern"
+ },
+ "1844890": {
+  "away": "FC Basel 1893",
+  "dt": "2026-07-25T18:00:00",
+  "goals": [
+   {
+    "min": "78'",
+    "name": "Zan Celar",
+    "player": 134322,
+    "team": "FC Basel 1893",
+    "type": "penaltyGoal"
+   }
+  ],
+  "home": "Servette FC"
+ },
+ "1844891": {
+  "away": "FC Vaduz",
+  "dt": "2026-07-26T16:30:00",
+  "goals": [
+   {
+    "min": "29'",
+    "name": "Antonios Papadopoulos",
+    "player": 1064386,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "37'",
+    "name": "Lukas Mai",
+    "player": 1033312,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "71'",
+    "name": "Lutfi Dalipi",
+    "player": 1131859,
+    "team": "FC Vaduz",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Lugano"
+ },
+ "1844892": {
+  "away": "FC Zürich",
+  "dt": "2026-07-26T16:30:00",
+  "goals": [
+   {
+    "min": "50'",
+    "name": "Umeh Emmanuel",
+    "player": 1123201,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "70'",
+    "name": "Lukas Görtler",
+    "player": 79060,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   },
+   {
+    "min": "74'",
+    "name": "Andrin Hunziker",
+    "player": 1089356,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   }
+  ],
+  "home": "FC St.Gallen 1879"
+ },
+ "1844893": {
+  "away": "FC Sion",
+  "dt": "2026-07-26T14:00:00",
+  "goals": [
+   {
+    "min": "23'",
+    "name": "Lewin Blum",
+    "player": 1093475,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "40'",
+    "name": "Alvyn Sanches",
+    "player": 1087013,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "45'+1",
+    "name": "Jan Kronig",
+    "player": 1045628,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "56'",
+    "name": "Winsley Boteli",
+    "player": 1133498,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "66'",
+    "name": "Samuel Essende",
+    "player": 1101713,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "73'",
+    "name": "Samuel Essende",
+    "player": 1101713,
+    "team": "BSC Young Boys",
+    "type": "penaltyGoal"
+   }
+  ],
+  "home": "BSC Young Boys"
+ },
+ "1844894": {
+  "away": "FC Lausanne-Sport",
+  "dt": "2026-08-01T18:00:00",
+  "goals": [
+   {
+    "min": "90'+1",
+    "name": "Florent Mollet",
+    "player": 122143,
+    "team": "FC Lausanne-Sport",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Basel 1893"
+ },
+ "1844895": {
+  "away": "BSC Young Boys",
+  "dt": "2026-08-01T20:30:00",
+  "goals": [
+   {
+    "min": "10'",
+    "name": "Joël Monteiro",
+    "player": 1085679,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "24'",
+    "name": "Lewin Blum",
+    "player": 1093475,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "33'",
+    "name": "Edimilson Fernandes",
+    "player": 76814,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "55'",
+    "name": "Samuel Essende",
+    "player": 1101713,
+    "team": "BSC Young Boys",
+    "type": "penaltyGoal"
+   },
+   {
+    "min": "68'",
+    "name": "Kastriot Imeri",
+    "player": 130320,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "90'",
+    "name": "Samuel Essende",
+    "player": 1101713,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Thun"
+ },
+ "1844896": {
+  "away": "Servette FC",
+  "dt": "2026-08-01T18:00:00",
+  "goals": [
+   {
+    "min": "35'",
+    "name": "Valon Berisha",
+    "player": 58906,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "79'",
+    "name": "Mohamed Bangoura",
+    "player": 1124829,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "90'+1",
+    "name": "Tiemoko Ouattara",
+    "player": 1112789,
+    "team": "Servette FC",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Zürich"
+ },
+ "1844897": {
+  "away": "FC Lugano",
+  "dt": "2026-08-02T16:30:00",
+  "goals": [
+   {
+    "min": "22'",
+    "name": "Luke Plange",
+    "player": 1097862,
+    "team": "Grasshopper Club Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "52'",
+    "name": "Dereck Moncada",
+    "player": 1140014,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "71'",
+    "name": "Yanis Cimignani",
+    "player": 1088381,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "78'",
+    "name": "Elias Pihlström",
+    "player": 1134740,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "90'+2",
+    "name": "Yanis Cimignani",
+    "player": 1088381,
+    "team": "FC Lugano",
+    "type": "goal"
+   }
+  ],
+  "home": "Grasshopper Club Zürich"
+ },
+ "1844898": {
+  "away": "FC Luzern",
+  "dt": "2026-08-02T16:30:00",
+  "goals": [
+   {
+    "min": "9'",
+    "name": "Donat Rrudhani",
+    "player": 1072028,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "70'",
+    "name": "Théo Berdayes",
+    "player": 1088800,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "77'",
+    "name": "Josias Lukembila",
+    "player": 1080958,
+    "team": "FC Sion",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Sion"
+ },
+ "1844899": {
+  "away": "FC St.Gallen 1879",
+  "dt": "2026-08-02T14:00:00",
+  "goals": [
+   {
+    "min": "1'",
+    "name": "Aliou Baldé",
+    "player": 1109461,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   },
+   {
+    "min": "11'",
+    "name": "Marcel Monsberger",
+    "player": 1133448,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "55'",
+    "name": "Juan Cabrera",
+    "player": 1130075,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "72'",
+    "name": "Enoch Owusu",
+    "player": 1133453,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   },
+   {
+    "min": "87'",
+    "name": "Enoch Owusu",
+    "player": 1133453,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Vaduz"
+ },
+ "1844900": {
+  "away": "FC Thun",
+  "dt": "2026-08-09T16:30:00",
+  "goals": [
+   {
+    "min": "4'",
+    "name": "Asane Sow",
+    "player": 1141954,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   },
+   {
+    "min": "31'",
+    "name": "Asane Sow",
+    "player": 1141954,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   },
+   {
+    "min": "53'",
+    "name": "Zan Celar",
+    "player": 134322,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   },
+   {
+    "min": "73'",
+    "name": "Layton Stewart",
+    "player": 1079445,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "75'",
+    "name": "Xherdan Shaqiri",
+    "player": 56193,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   },
+   {
+    "min": "90'+1",
+    "name": "Brighton Labeau",
+    "player": 1094668,
+    "team": "FC Thun",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Basel 1893"
+ },
+ "1844901": {
+  "away": "BSC Young Boys",
+  "dt": "2026-08-08T18:00:00",
+  "goals": [
+   {
+    "min": "48'",
+    "name": "Cédric Zesiger",
+    "player": 81751,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "75'",
+    "name": "Dominik Pech",
+    "player": 1115120,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "77'",
+    "name": "Florent Mollet",
+    "player": 122143,
+    "team": "FC Lausanne-Sport",
+    "type": "goal"
+   },
+   {
+    "min": "89'",
+    "name": "Nathan Butler-Oyedeji",
+    "player": 1108847,
+    "team": "FC Lausanne-Sport",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Lausanne-Sport"
+ },
+ "1844902": {
+  "away": "Grasshopper Club Zürich",
+  "dt": "2026-08-08T20:30:00",
+  "goals": [
+   {
+    "min": "12'",
+    "name": "Amir Abrashi",
+    "player": 36094,
+    "team": "Grasshopper Club Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "29'",
+    "name": "Samuel Mraz",
+    "player": 132455,
+    "team": "Servette FC",
+    "type": "goal"
+   },
+   {
+    "min": "75'",
+    "name": "Mathis Lambourde",
+    "player": 1114884,
+    "team": "Servette FC",
+    "type": "goal"
+   }
+  ],
+  "home": "Servette FC"
+ },
+ "1844903": {
+  "away": "FC Zürich",
+  "dt": "2026-08-09T14:00:00",
+  "goals": [
+   {
+    "min": "16'",
+    "name": "Kevin Behrens",
+    "player": 1038213,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "34'",
+    "name": "Kevin Behrens",
+    "player": 1038213,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "52'",
+    "name": "Renato Steffen",
+    "player": 61203,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "79'",
+    "name": "Daniel Dos Santos",
+    "player": 1089012,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "89'",
+    "name": "Dereck Moncada",
+    "player": 1140014,
+    "team": "FC Lugano",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Lugano"
+ },
+ "1844904": {
+  "away": "FC Vaduz",
+  "dt": "2026-08-09T16:30:00",
+  "goals": [
+   {
+    "min": "5'",
+    "name": "Julian Stark",
+    "player": 1085220,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "21'",
+    "name": "Donat Rrudhani",
+    "player": 1072028,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "36'",
+    "name": "Marcel Monsberger",
+    "player": 1133448,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "83'",
+    "name": "Winsley Boteli",
+    "player": 1133498,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "90'+4",
+    "name": "Franck Surdez",
+    "player": 1086610,
+    "team": "FC Sion",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Sion"
+ },
+ "1844905": {
+  "away": "FC Luzern",
+  "dt": "2026-08-09T16:30:00",
+  "goals": [
+   {
+    "min": "45'+3",
+    "name": "Lukas Daschner",
+    "player": 131713,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   },
+   {
+    "min": "46'",
+    "name": "Daniel Mikolajewski",
+    "player": 1143744,
+    "team": "FC Luzern",
+    "type": "goal"
+   },
+   {
+    "min": "89'",
+    "name": "Matteo Di Giusto",
+    "player": 1072025,
+    "team": "FC Luzern",
+    "type": "goal"
+   },
+   {
+    "min": "90'+11",
+    "name": "Lukas Görtler",
+    "player": 79060,
+    "team": "FC St.Gallen 1879",
+    "type": "penaltyGoal"
+   }
+  ],
+  "home": "FC St.Gallen 1879"
+ },
+ "1844906": {
+  "away": "FC Lausanne-Sport",
+  "dt": "2026-08-22T18:00:00",
+  "goals": [
+   {
+    "min": "3'",
+    "name": "Matteo Di Giusto",
+    "player": 1072025,
+    "team": "FC Luzern",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Luzern"
+ },
+ "1844908": {
+  "away": "FC Basel 1893",
+  "dt": "2026-08-22T20:30:00",
+  "goals": [
+   {
+    "min": "8'",
+    "name": "Philippe Kény",
+    "player": 1106082,
+    "team": "FC Zürich",
+    "type": "penaltyGoal"
+   },
+   {
+    "min": "62'",
+    "name": "Kazeem Olaigbe",
+    "player": 1099199,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   },
+   {
+    "min": "85'",
+    "name": "Zan Celar",
+    "player": 134322,
+    "team": "FC Basel 1893",
+    "type": "penaltyGoal"
+   }
+  ],
+  "home": "FC Zürich"
+ },
+ "1844909": {
+  "away": "FC Sion",
+  "dt": "2026-09-15T19:00:00",
+  "goals": [
+   {
+    "min": "12'",
+    "name": "Ilyas Chouaref",
+    "player": 1049923,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "42'",
+    "name": "Samuel Krasniqi",
+    "player": 1103555,
+    "team": "Grasshopper Club Zürich",
+    "type": "penaltyGoal"
+   },
+   {
+    "min": "49'",
+    "name": "Giotto Morandi",
+    "player": 1053442,
+    "team": "Grasshopper Club Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "63'",
+    "name": "Rilind Nivokazi",
+    "player": 1096789,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "69'",
+    "name": "Rilind Nivokazi",
+    "player": 1096789,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "82'",
+    "name": "Fodé Sylla",
+    "player": 1109596,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "90'+1",
+    "name": "Josias Lukembila",
+    "player": 1080958,
+    "team": "FC Sion",
+    "type": "goal"
+   }
+  ],
+  "home": "Grasshopper Club Zürich"
+ },
+ "1844911": {
+  "away": "FC Vaduz",
+  "dt": "2026-08-23T14:00:00",
+  "goals": [
+   {
+    "min": "4'",
+    "name": "Joël Monteiro",
+    "player": 1085679,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "25'",
+    "name": "Milos Cocic",
+    "player": 1085269,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "37'",
+    "name": "Kaly Sène",
+    "player": 1089024,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "43'",
+    "name": "Milos Cocic",
+    "player": 1085269,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "57'",
+    "name": "Alvyn Sanches",
+    "player": 1087013,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "87'",
+    "name": "Armin Gigovic",
+    "player": 1108736,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   }
+  ],
+  "home": "BSC Young Boys"
+ },
+ "1844912": {
+  "away": "FC Zürich",
+  "dt": "2026-08-29T18:00:00",
+  "goals": [
+   {
+    "min": "31'",
+    "name": "Enzo Molebe",
+    "player": 1125956,
+    "team": "FC Lausanne-Sport",
+    "type": "goal"
+   },
+   {
+    "min": "47'",
+    "name": "Bledian Krasniqi",
+    "player": 1049657,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "58'",
+    "name": "Lindrit Kamberi",
+    "player": 143684,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "73'",
+    "name": "Omar Janneh",
+    "player": 1132019,
+    "team": "FC Lausanne-Sport",
+    "type": "goal"
+   },
+   {
+    "min": "81'",
+    "name": "Umeh Emmanuel",
+    "player": 1123201,
+    "team": "FC Zürich",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Lausanne-Sport"
+ },
+ "1844913": {
+  "away": "FC Luzern",
+  "dt": "2026-08-29T18:00:00",
+  "goals": [
+   {
+    "min": "14'",
+    "name": "Miroslav Stevanovic",
+    "player": 58784,
+    "team": "Servette FC",
+    "type": "goal"
+   },
+   {
+    "min": "31'",
+    "name": "Andrejs Ciganiks",
+    "player": 1047587,
+    "team": "FC Luzern",
+    "type": "goal"
+   }
+  ],
+  "home": "Servette FC"
+ },
+ "1844914": {
+  "away": "FC Basel 1893",
+  "dt": "2026-08-29T20:30:00",
+  "goals": [
+   {
+    "min": "7'",
+    "name": "Joël Monteiro",
+    "player": 1085679,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "14'",
+    "name": "Samuel Essende",
+    "player": 1101713,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "32'",
+    "name": "Kazeem Olaigbe",
+    "player": 1099199,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   },
+   {
+    "min": "37'",
+    "name": "Asane Sow",
+    "player": 1141954,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   },
+   {
+    "min": "45'+1",
+    "name": "Alvyn Sanches",
+    "player": 1087013,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "71'",
+    "name": "Akpe Victory",
+    "player": 1142142,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   }
+  ],
+  "home": "BSC Young Boys"
+ },
+ "1844915": {
+  "away": "FC Lugano",
+  "dt": "2026-08-30T14:00:00",
+  "goals": [
+   {
+    "min": "3'",
+    "name": "Dereck Moncada",
+    "player": 1140014,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "55'",
+    "name": "Winsley Boteli",
+    "player": 1133498,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "79'",
+    "name": "Beckham Castro",
+    "player": 1141955,
+    "team": "FC Lugano",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Sion"
+ },
+ "1844916": {
+  "away": "FC Thun",
+  "dt": "2026-08-30T16:30:00",
+  "goals": [
+   {
+    "min": "9'",
+    "name": "Brighton Labeau",
+    "player": 1094668,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "46'",
+    "name": "Nils Reichmuth",
+    "player": 1082910,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "48'",
+    "name": "Leon Frokaj",
+    "player": 1119197,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   },
+   {
+    "min": "52'",
+    "name": "Brighton Labeau",
+    "player": 1094668,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "58'",
+    "name": "Furkan Dursun",
+    "player": 1124513,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "75'",
+    "name": "Nevio Scherrer",
+    "player": 1140205,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   },
+   {
+    "min": "90'",
+    "name": "Lukas Daschner",
+    "player": 131713,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   }
+  ],
+  "home": "FC St.Gallen 1879"
+ },
+ "1844917": {
+  "away": "Grasshopper Club Zürich",
+  "dt": "2026-08-30T16:30:00",
+  "goals": [
+   {
+    "min": "12'",
+    "name": "Lutfi Dalipi",
+    "player": 1131859,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "35'",
+    "name": "Young-Jun Lee",
+    "player": 1124793,
+    "team": "Grasshopper Club Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "43'",
+    "name": "Dominik Schwizer",
+    "player": 133516,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "45'+2",
+    "name": "Nikolas Muci",
+    "player": 1090731,
+    "team": "Grasshopper Club Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "55'",
+    "name": "Dominik Schwizer",
+    "player": 133516,
+    "team": "FC Vaduz",
+    "type": "penaltyGoal"
+   },
+   {
+    "min": "58'",
+    "name": "Juan Cabrera",
+    "player": 1130075,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "76'",
+    "name": "Juan Cabrera",
+    "player": 1130075,
+    "team": "FC Vaduz",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Vaduz"
+ },
+ "1844918": {
+  "away": "BSC Young Boys",
+  "dt": "2026-09-01T20:30:00",
+  "goals": [
+   {
+    "min": "11'",
+    "name": "Miguel Reichmuth",
+    "player": 1100563,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "23'",
+    "name": "Christian Fassnacht",
+    "player": 77876,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "32'",
+    "name": "Christian Fassnacht",
+    "player": 77876,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "55'",
+    "name": "Christian Fassnacht",
+    "player": 77876,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "73'",
+    "name": "Alan Virginius",
+    "player": 1088443,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "86'",
+    "name": "Lindrit Kamberi",
+    "player": 143684,
+    "team": "FC Zürich",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Zürich"
+ },
+ "1844919": {
+  "away": "FC St.Gallen 1879",
+  "dt": "2026-09-02T20:30:00",
+  "goals": [
+   {
+    "min": "36'",
+    "name": "Amir Abrashi",
+    "player": 36094,
+    "team": "Grasshopper Club Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "69'",
+    "name": "Young-Jun Lee",
+    "player": 1124793,
+    "team": "Grasshopper Club Zürich",
+    "type": "goal"
+   }
+  ],
+  "home": "Grasshopper Club Zürich"
+ },
+ "1844920": {
+  "away": "FC Vaduz",
+  "dt": "2026-09-02T20:30:00",
+  "goals": [
+   {
+    "min": "46'",
+    "name": "Julian Stark",
+    "player": 1085220,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "59'",
+    "name": "Ruben Dantas",
+    "player": 1111040,
+    "team": "FC Luzern",
+    "type": "goal"
+   },
+   {
+    "min": "90'+1",
+    "name": "Nando Toggenburger",
+    "player": 1103565,
+    "team": "FC Luzern",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Luzern"
+ },
+ "1844921": {
+  "away": "FC Lausanne-Sport",
+  "dt": "2026-09-02T20:30:00",
+  "goals": [],
+  "home": "FC Thun"
+ },
+ "1844922": {
+  "away": "FC Sion",
+  "dt": "2026-09-03T20:30:00",
+  "goals": [
+   {
+    "min": "40'",
+    "name": "Zan Celar",
+    "player": 134322,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   },
+   {
+    "min": "76'",
+    "name": "Winsley Boteli",
+    "player": 1133498,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "79'",
+    "name": "Winsley Boteli",
+    "player": 1133498,
+    "team": "FC Sion",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Basel 1893"
+ },
+ "1844923": {
+  "away": "Servette FC",
+  "dt": "2026-09-03T20:30:00",
+  "goals": [
+   {
+    "min": "90'+4",
+    "name": "Albian Ajeti",
+    "player": 69904,
+    "team": "FC Lugano",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Lugano"
+ },
+ "1844924": {
+  "away": "FC Zürich",
+  "dt": "2026-09-05T20:30:00",
+  "goals": [
+   {
+    "min": "54'",
+    "name": "Kevin Spadanuda",
+    "player": 1072027,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "58'",
+    "name": "Samuel Krasniqi",
+    "player": 1103555,
+    "team": "Grasshopper Club Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "80'",
+    "name": "Umeh Emmanuel",
+    "player": 1123201,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "90'+6",
+    "name": "Bujar Pllana",
+    "player": 1140944,
+    "team": "Grasshopper Club Zürich",
+    "type": "goal"
+   }
+  ],
+  "home": "Grasshopper Club Zürich"
+ },
+ "1844925": {
+  "away": "FC Lausanne-Sport",
+  "dt": "2026-09-05T18:00:00",
+  "goals": [
+   {
+    "min": "19'",
+    "name": "Lutfi Dalipi",
+    "player": 1131859,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "23'",
+    "name": "Levy Néné",
+    "player": 1144731,
+    "team": "FC Lausanne-Sport",
+    "type": "goal"
+   },
+   {
+    "min": "53'",
+    "name": "Milos Cocic",
+    "player": 1085269,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "60'",
+    "name": "Juan Cabrera",
+    "player": 1130075,
+    "team": "FC Vaduz",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Vaduz"
+ },
+ "1844926": {
+  "away": "FC Luzern",
+  "dt": "2026-09-05T18:00:00",
+  "goals": [
+   {
+    "min": "14'",
+    "name": "Samuel Essende",
+    "player": 1101713,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "47'",
+    "name": "Andrejs Ciganiks",
+    "player": 1047587,
+    "team": "FC Luzern",
+    "type": "goal"
+   },
+   {
+    "min": "49'",
+    "name": "Andrejs Ciganiks",
+    "player": 1047587,
+    "team": "FC Luzern",
+    "type": "goal"
+   },
+   {
+    "min": "52'",
+    "name": "Samuel Essende",
+    "player": 1101713,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "65'",
+    "name": "Matteo Di Giusto",
+    "player": 1072025,
+    "team": "FC Luzern",
+    "type": "penaltyGoal"
+   },
+   {
+    "min": "88'",
+    "name": "Kaly Sène",
+    "player": 1089024,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   }
+  ],
+  "home": "BSC Young Boys"
+ },
+ "1844927": {
+  "away": "FC Lugano",
+  "dt": "2026-09-06T16:30:00",
+  "goals": [
+   {
+    "min": "47'",
+    "name": "Metinho",
+    "player": 1129779,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   },
+   {
+    "min": "59'",
+    "name": "Yanis Cimignani",
+    "player": 1088381,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "61'",
+    "name": "Uran Bislimi",
+    "player": 1068198,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "81'",
+    "name": "Ahmed Kendouci",
+    "player": 1091463,
+    "team": "FC Lugano",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Basel 1893"
+ },
+ "1844928": {
+  "away": "FC St.Gallen 1879",
+  "dt": "2026-09-06T14:00:00",
+  "goals": [
+   {
+    "min": "6'",
+    "name": "Aliou Baldé",
+    "player": 1109461,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   },
+   {
+    "min": "50'",
+    "name": "Nevio Scherrer",
+    "player": 1140205,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   }
+  ],
+  "home": "Servette FC"
+ },
+ "1844929": {
+  "away": "FC Thun",
+  "dt": "2026-09-06T16:30:00",
+  "goals": [
+   {
+    "min": "10'",
+    "name": "Jan Bamert",
+    "player": 84919,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "21'",
+    "name": "Noé Sow",
+    "player": 1094574,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "53'",
+    "name": "Donat Rrudhani",
+    "player": 1072028,
+    "team": "FC Sion",
+    "type": "penaltyGoal"
+   },
+   {
+    "min": "71'",
+    "name": "Fabio Fehr",
+    "player": 1079042,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "90'+4",
+    "name": "Josias Lukembila",
+    "player": 1080958,
+    "team": "FC Sion",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Sion"
+ },
+ "1844930": {
+  "away": "BSC Young Boys",
+  "dt": "2026-09-12T19:00:00",
+  "goals": [
+   {
+    "min": "2'",
+    "name": "Daniel Dos Santos",
+    "player": 1089012,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "28'",
+    "name": "Samuel Essende",
+    "player": 1101713,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "45'",
+    "name": "Christian Fassnacht",
+    "player": 77876,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "80'",
+    "name": "Albian Ajeti",
+    "player": 69904,
+    "team": "FC Lugano",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Lugano"
+ },
+ "1844931": {
+  "away": "FC Sion",
+  "dt": "2026-09-12T18:00:00",
+  "goals": [
+   {
+    "min": "37'",
+    "name": "Ilyas Chouaref",
+    "player": 1049923,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "45'+1",
+    "name": "Franck Surdez",
+    "player": 1086610,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "59'",
+    "name": "Ali Kabacalman",
+    "player": 84099,
+    "team": "FC Sion",
+    "type": "goal"
+   }
+  ],
+  "home": "FC St.Gallen 1879"
+ },
+ "1844932": {
+  "away": "Grasshopper Club Zürich",
+  "dt": "2026-09-12T18:00:00",
+  "goals": [
+   {
+    "min": "23'",
+    "name": "Samuele Bengondo",
+    "player": 1137378,
+    "team": "Grasshopper Club Zürich",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Thun"
+ },
+ "1844933": {
+  "away": "Servette FC",
+  "dt": "2026-09-13T16:30:00",
+  "goals": [
+   {
+    "min": "52'",
+    "name": "Kingstone Mutandwa",
+    "player": 1144850,
+    "team": "Servette FC",
+    "type": "penaltyGoal"
+   }
+  ],
+  "home": "FC Lausanne-Sport"
+ },
+ "1844934": {
+  "away": "FC Basel 1893",
+  "dt": "2026-09-13T16:30:00",
+  "goals": [
+   {
+    "min": "1'",
+    "name": "Oscar Kabwit",
+    "player": 1136665,
+    "team": "FC Luzern",
+    "type": "goal"
+   },
+   {
+    "min": "4'",
+    "name": "Zan Celar",
+    "player": 134322,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   },
+   {
+    "min": "42'",
+    "name": "Philip Otele",
+    "player": 1064880,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   },
+   {
+    "min": "56'",
+    "name": "Xherdan Shaqiri",
+    "player": 56193,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   },
+   {
+    "min": "66'",
+    "name": "Xherdan Shaqiri",
+    "player": 56193,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   },
+   {
+    "min": "84'",
+    "name": "Lars Villiger",
+    "player": 1110491,
+    "team": "FC Luzern",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Luzern"
+ },
+ "1844935": {
+  "away": "FC Vaduz",
+  "dt": "2026-09-13T14:00:00",
+  "goals": [
+   {
+    "min": "13'",
+    "name": "Marcel Monsberger",
+    "player": 1133448,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "55'",
+    "name": "Philippe Kény",
+    "player": 1106082,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "90'+2",
+    "name": "Umeh Emmanuel",
+    "player": 1123201,
+    "team": "FC Zürich",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Zürich"
+ }
+}

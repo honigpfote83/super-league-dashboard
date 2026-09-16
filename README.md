@@ -50,6 +50,7 @@ langen Pause (Sommer) im Tab *Actions* prüfen, ob der Workflow noch aktiv ist.
 | `clubs.json` | Vereinsfarben (`ink`) und Logodateinamen. Von Hand gepflegt. |
 | `logos/` | Original-Logodateien von FootyLogos.com. Werden nie verändert. |
 | `web-logos/` | Von `build.py` erzeugte, publizierbare Kopien (SVGs ohne DOCTYPE/Skripte). Nicht eingecheckt. |
+| `goals.json` | Tore je Spiel (Spieler, Team, Minute). Grundlage fuer die Vereinszuordnung der Torschuetzen. Wird vom Workflow committet. |
 | `data.json` | Letzter Datenstand inkl. Fingerabdruck für die Änderungserkennung. Wird vom Workflow committet. |
 
 Ein neues Logo austauschen: Datei in `logos/` legen, den Namen in `clubs.json` eintragen,
@@ -84,23 +85,24 @@ Daraus folgt: **Aus einem fehlenden Verein laesst sich nicht schliessen, dass ei
 die Liga verlassen hat.** Eine frueher eingebaute Heuristik in diese Richtung wurde wieder
 entfernt, weil sie nachweislich falsche Treffer produziert hat.
 
-Weil die Seite automatisch veroeffentlicht wird, wuerde jedes Flackern sofort sichtbar.
-`build.py` legt den Verein eines Torschuetzen deshalb in dieser Reihenfolge fest:
+Den Verein bestimmt deshalb nicht diese Liste, sondern die Spiele selbst:
+`/v1/games/<Spiel-ID>/incidents` nennt zu jedem Tor den Spieler und das Team, fuer das
+es gezaehlt hat. Das ist eine Tatsache des Spiels und flackert nicht. Beim ersten Abgleich
+(16.09.2026) ergaben die Tore aller 46 Spiele genau die Resultate, und die Anzahl je Spieler
+stimmte mit der Torschuetzenliste ueberein.
 
-1. **`scorerClubs` in `clubs.json`**: verbindlich, geht immer vor.
-2. **Letzter bekannter Stand aus `data.json`**: Meldet die API einen anderen Verein, wird
-   das **nicht** uebernommen, sondern nur als Warnung gemeldet (im Actions-Protokoll).
-3. **API**: nur fuer Spieler, die noch gar keinen Stand haben, oder wenn der Verein fehlt
-   und auch kein frueherer Stand existiert.
+`build.py` legt den Verein eines Torschuetzen in dieser Reihenfolge fest:
 
-Ein echter Transfer wird also von Hand eingetragen:
+1. **`scorerClubs` in `clubs.json`**: nur fuer Ausnahmen, normalerweise leer.
+2. **Das Team, fuer das er zuletzt getroffen hat.** Ein Transfer wird damit automatisch
+   sichtbar, sobald der Spieler fuer den neuen Verein trifft; vorher steht er beim alten
+   Verein, fuer den seine Tore ja auch zaehlen.
+3. **Letzter bekannter Stand aus `data.json`**, danach erst die API.
 
-```json
-"scorerClubs": {"Nicolas Bürgy": "FC Thun"}
-```
-
-Vereinsname genau wie unter `clubs`; Tippfehler meldet `build.py`. Die Zuordnung auf
-transfermarkt.com ist eine gute Gegenprobe.
+Die Tore je Spiel liegen in `goals.json` (vom Workflow mit committet). Ein Spiel wird dort
+nur gespeichert, wenn seine Tore das Resultat ergeben; Spiele der letzten 36 Stunden werden
+bei jedem Lauf neu geholt, falls SRF nachtraeglich korrigiert. Zusaetzlich warnt `build.py`,
+wenn die Toranzahl eines Spielers in der Liste nicht zu den Spielen passt.
 
 Alle anderen Daten dieser Seite (Resultate, Tabelle, Tore, Zuschauer) stammen aus
 `/v1/eventItems` und waren durchgehend stabil und mit dem offiziellen SRF-Klassement

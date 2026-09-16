@@ -72,6 +72,68 @@ def contrast(a, b):
     return (hi + 0.05) / (lo + 0.05)
 
 
+GOAL_KEYS = ("goal", "penaltyGoal")          # zaehlen fuer den Torschuetzen
+OWN_GOAL_KEYS = ("ownGoal",)                 # zaehlen nur fuers Resultat
+REFETCH_HOURS = 36                           # juengere Spiele neu holen (Korrekturen)
+
+
+def load_goals(matches, team_ids, warnings):
+    """Tore je Spiel aus /games/<id>/incidents, zwischengespeichert in goals.json.
+
+    Anders als die Torschuetzenliste nennt jedes Tor-Ereignis das Team, fuer das es
+    gezaehlt hat (teamCompetitorId) — eine Tatsache des Spiels, die nicht flackert.
+    Ein Spiel wird nur gespeichert, wenn seine Tore das Resultat ergeben; sonst wird
+    es beim naechsten Lauf erneut geholt.
+    """
+    path = os.path.join(HERE, "goals.json")
+    cache = {}
+    if os.path.exists(path):
+        try:
+            cache = json.load(open(path, encoding="utf-8"))
+        except Exception:                        # noqa: BLE001
+            warnings.append("goals.json unlesbar, wird neu aufgebaut")
+    recent = time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime(time.time() - REFETCH_HOURS * 3600))
+    live_ids = set()
+    for m in matches:
+        if m["state"] != "Finished":
+            continue
+        key = str(m["id"])
+        live_ids.add(key)
+        if key in cache and (m["dt"] or "") < recent:
+            continue
+        items = get("%s/games/%s/incidents/?lang=de" % (BASE, m["id"])) or []
+        goals, own = [], 0
+        for i in items:
+            k = i.get("incidentTypeKey")
+            if k in OWN_GOAL_KEYS:
+                own += 1
+            if k not in GOAL_KEYS:
+                continue
+            c = i.get("competitor") or {}
+            goals.append({
+                "player": c.get("id"),
+                "name": ((c.get("firstName") or "") + " " + (c.get("name") or "")).strip(),
+                "team": team_ids.get(i.get("teamCompetitorId")),
+                "min": i.get("displayTime"), "type": k,
+            })
+        problem = None
+        if not items:
+            problem = "keine Ereignisse"
+        elif len(goals) + own != m["hg"] + m["ag"]:
+            problem = "%d Tore in den Ereignissen, Resultat %d:%d" % (len(goals) + own, m["hg"], m["ag"])
+        elif any(g["team"] not in (m["home"], m["away"]) for g in goals):
+            problem = "Tor fuer ein Team, das nicht mitgespielt hat"
+        if problem:
+            warnings.append("Tore %s - %s (%s): %s" % (m["home"], m["away"], (m["dt"] or "")[:10], problem))
+            continue                             # alten Stand (falls vorhanden) behalten
+        cache[key] = {"dt": m["dt"], "home": m["home"], "away": m["away"], "goals": goals}
+    for key in set(cache) - live_ids:            # Spiel verschoben/annulliert
+        del cache[key]
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=1, sort_keys=True)
+    return cache
+
+
 LOGO_SRC = "logos"
 LOGO_OUT = "web-logos"
 
@@ -134,6 +196,7 @@ def main():
 
     # Spiele je Runde
     matches = []
+    team_ids = {}
     for idx, rnd in enumerate(rounds, start=1):
         items = get("%s/eventItems?phaseIds=%s&lang=de" % (BASE, rnd["id"])) or []
         for x in items:
@@ -142,6 +205,7 @@ def main():
             c1, c2 = x.get("competitor1") or {}, x.get("competitor2") or {}
             if not c1.get("name") or not c2.get("name"):
                 continue
+            team_ids[c1.get("id")], team_ids[c2.get("id")] = c1["name"], c2["name"]
             sc = x.get("scores") or {}
             m = {
                 "id": x.get("id"), "round": idx, "roundName": rnd["name"],
@@ -195,15 +259,22 @@ def main():
     departed = set(cfg_early.get("departed") or [])
     pinned = cfg_early.get("scorerClubs") or {}
 
-    # Die Vereinszuordnung dieses Endpunkts ist unzuverlaessig: sie wird stromaufwaerts
-    # ueber Minuten hinweg umgeschrieben und faellt gelegentlich ganz weg. Deshalb keine
-    # Schlussfolgerungen daraus ziehen. Reihenfolge:
+    # Die Vereinszuordnung der Torschuetzenliste ist unzuverlaessig: sie wird stromaufwaerts
+    # ueber Minuten hinweg umgeschrieben (oft auf einen frueheren Verein des Spielers) und
+    # faellt gelegentlich ganz weg. Reihenfolge:
     #   1. clubs.json "scorerClubs" — verbindlich, geht immer vor.
-    #   2. letzter bekannter Stand aus data.json — ein von der API gemeldeter Wechsel
-    #      wird NICHT uebernommen (die Seite wird automatisch veroeffentlicht und wuerde
-    #      sonst mit jedem Flackern hin und her springen), sondern nur gemeldet.
-    #   3. die API — nur fuer Spieler, die noch gar keinen Stand haben.
+    #   2. das Team, fuer das der Spieler zuletzt getroffen hat (goals.json). Bildet
+    #      Transfers von selbst ab, sobald der Spieler fuer den neuen Verein trifft.
+    #   3. letzter bekannter Stand aus data.json — ein von der API gemeldeter Wechsel
+    #      wird nicht uebernommen, sondern nur gemeldet.
+    #   4. die API — nur fuer Spieler, die noch gar keinen Stand haben.
     # Wer die Liga verlassen hat, steht in clubs.json unter "departed".
+    goal_cache = load_goals(matches, team_ids, warnings)
+    last_team, goal_count = {}, {}
+    for g_match in sorted(goal_cache.values(), key=lambda x: x["dt"] or ""):
+        for g in g_match["goals"]:
+            last_team[g["player"]] = g["team"]
+            goal_count[g["player"]] = goal_count.get(g["player"], 0) + 1
     known_team = {}
     for old_s in prev.get("scorers") or []:
         if old_s.get("teamFull"):
@@ -216,7 +287,7 @@ def main():
         warnings.append("clubs.json 'scorerClubs': unbekannter Vereinsname bei %s" % ", ".join(bad_pins))
 
     scorers = []
-    filled, unknown, moved = [], [], []
+    filled, unknown, moved, counted = [], [], [], []
     if scorer_rank:
         data = get("%s/rankings/%s?lang=de" % (BASE, scorer_rank["id"]))
         for it in (data or {}).get("rankingItems") or []:
@@ -224,8 +295,11 @@ def main():
             team = c.get("team") or {}
             name = ((c.get("firstName") or "") + " " + (c.get("name") or "")).strip()
             short, full = team.get("shortName") or team.get("name") or "", team.get("name") or ""
+            pid = c.get("id")
             if pinned.get(name) in short_of:
                 short, full = short_of[pinned[name]], pinned[name]
+            elif last_team.get(pid) in short_of:
+                short, full = short_of[last_team[pid]], last_team[pid]
             elif not full:
                 short, full = known_team.get(name, ("", ""))
                 (filled if full else unknown).append(name)
@@ -242,6 +316,8 @@ def main():
             }
             if name in departed:
                 entry["former"] = True
+            if goal_count.get(pid, 0) != entry["goals"]:
+                counted.append("%s: Liste %s, Spiele %s" % (name, entry["goals"], goal_count.get(pid, 0)))
             scorers.append(entry)
     if filled:
         warnings.append("Verein fehlte im Abruf, letzter bekannter Stand verwendet: %s"
@@ -252,6 +328,9 @@ def main():
     if moved:
         warnings.append("Vereinswechsel laut API (pruefen, der Endpunkt ist hier unzuverlaessig): %s"
                         % " | ".join(sorted(moved)))
+    if counted:
+        warnings.append("Torschuetzenliste passt nicht zu den Toren aus den Spielen: %s"
+                        % " | ".join(counted[:10]))
     stray_pins = set(pinned) - {x["name"] for x in scorers}
     if stray_pins:
         warnings.append("In clubs.json unter 'scorerClubs' aufgefuehrt, aber nicht in der "
