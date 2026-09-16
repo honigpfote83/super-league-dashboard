@@ -193,16 +193,27 @@ def main():
 
     cfg_early = json.load(open(os.path.join(HERE, "clubs.json"), encoding="utf-8"))
     departed = set(cfg_early.get("departed") or [])
+    pinned = cfg_early.get("scorerClubs") or {}
 
     # Die Vereinszuordnung dieses Endpunkts ist unzuverlaessig: sie wird stromaufwaerts
     # ueber Minuten hinweg umgeschrieben und faellt gelegentlich ganz weg. Deshalb keine
-    # Schlussfolgerungen daraus ziehen — fehlt ein Verein, den letzten bekannten Stand
-    # weiterverwenden und es melden. Wer die Liga verlassen hat, steht in clubs.json
-    # unter "departed"; das ist die einzige verbindliche Quelle dafuer.
+    # Schlussfolgerungen daraus ziehen. Reihenfolge:
+    #   1. clubs.json "scorerClubs" — verbindlich, geht immer vor.
+    #   2. letzter bekannter Stand aus data.json — ein von der API gemeldeter Wechsel
+    #      wird NICHT uebernommen (die Seite wird automatisch veroeffentlicht und wuerde
+    #      sonst mit jedem Flackern hin und her springen), sondern nur gemeldet.
+    #   3. die API — nur fuer Spieler, die noch gar keinen Stand haben.
+    # Wer die Liga verlassen hat, steht in clubs.json unter "departed".
     known_team = {}
     for old_s in prev.get("scorers") or []:
         if old_s.get("teamFull"):
             known_team[old_s.get("name")] = (old_s.get("team"), old_s.get("teamFull"))
+    short_of = {}
+    for m in matches:
+        short_of[m["home"]], short_of[m["away"]] = m["homeShort"], m["awayShort"]
+    bad_pins = sorted(n for n, t in pinned.items() if t not in short_of)
+    if bad_pins:
+        warnings.append("clubs.json 'scorerClubs': unbekannter Vereinsname bei %s" % ", ".join(bad_pins))
 
     scorers = []
     filled, unknown, moved = [], [], []
@@ -213,11 +224,16 @@ def main():
             team = c.get("team") or {}
             name = ((c.get("firstName") or "") + " " + (c.get("name") or "")).strip()
             short, full = team.get("shortName") or team.get("name") or "", team.get("name") or ""
-            if not full:
+            if pinned.get(name) in short_of:
+                short, full = short_of[pinned[name]], pinned[name]
+            elif not full:
                 short, full = known_team.get(name, ("", ""))
                 (filled if full else unknown).append(name)
             elif name in known_team and known_team[name][1] != full:
-                moved.append("%s: %s -> %s" % (name, known_team[name][1], full))
+                moved.append("%s: API sagt %s, behalten %s — echter Transfer? "
+                             "Dann in clubs.json unter 'scorerClubs' eintragen"
+                             % (name, full, known_team[name][1]))
+                short, full = known_team[name]
             entry = {
                 "rank": it.get("rank"), "name": name,
                 "team": short, "teamFull": full,
@@ -236,6 +252,10 @@ def main():
     if moved:
         warnings.append("Vereinswechsel laut API (pruefen, der Endpunkt ist hier unzuverlaessig): %s"
                         % " | ".join(sorted(moved)))
+    stray_pins = set(pinned) - {x["name"] for x in scorers}
+    if stray_pins:
+        warnings.append("In clubs.json unter 'scorerClubs' aufgefuehrt, aber nicht in der "
+                        "Torschuetzenliste (Tippfehler?): %s" % ", ".join(sorted(stray_pins)))
     stray = departed - {x["name"] for x in scorers}
     if stray:
         warnings.append("In clubs.json unter 'departed' aufgefuehrt, aber nicht in der "

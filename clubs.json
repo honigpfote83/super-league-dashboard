@@ -109,5 +109,10 @@
     "Joël Monteiro",
     "Layton Stewart"
   ],
-  "_readme_departed": "Spieler, die die Liga waehrend der Saison verlassen haben. Ihre Tore bleiben in der Wertung, der letzte bekannte Verein wird mit '(ehem.)' markiert. Namen genau so schreiben wie in der Torschuetzenliste. build.py markiert zusaetzlich automatisch jeden, fuer den die API keinen Verein mehr nennt."
+  "_readme_departed": "Spieler, die die Liga waehrend der Saison verlassen haben. Ihre Tore bleiben in der Wertung, der letzte bekannte Verein wird mit '(ehem.)' markiert. Namen genau so schreiben wie in der Torschuetzenliste. Einzige verbindliche Quelle, es gibt keine automatische Erkennung.",
+  "scorerClubs": {
+    "Alvyn Sanches": "BSC Young Boys",
+    "Nicolas Bürgy": "FC Thun"
+  },
+  "_readme_scorerClubs": "Verbindliche Vereinszuordnung fuer Torschuetzen, geht der API immer vor. Vereinsname genau wie in 'clubs'. Noetig, weil die API Vereine flackern laesst: build.py uebernimmt einen von der API gemeldeten Vereinswechsel NICHT, sondern behaelt den letzten Stand und warnt. Ein echter Transfer wird hier eingetragen."
 }

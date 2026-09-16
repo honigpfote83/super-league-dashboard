@@ -84,12 +84,23 @@ Daraus folgt: **Aus einem fehlenden Verein laesst sich nicht schliessen, dass ei
 die Liga verlassen hat.** Eine frueher eingebaute Heuristik in diese Richtung wurde wieder
 entfernt, weil sie nachweislich falsche Treffer produziert hat.
 
-`build.py` beschraenkt sich deshalb darauf:
+Weil die Seite automatisch veroeffentlicht wird, wuerde jedes Flackern sofort sichtbar.
+`build.py` legt den Verein eines Torschuetzen deshalb in dieser Reihenfolge fest:
 
-- Fehlt ein Verein, wird der letzte bekannte aus `data.json` verwendet und gemeldet.
-- Aendert die API einen Verein gegenueber dem letzten Stand, kommt eine Warnung zum
-  Nachpruefen — das kann ein echter Transfer sein oder eben nicht.
-- Spielerfelder wandern sonst unveraendert aus der API in die Seite.
+1. **`scorerClubs` in `clubs.json`**: verbindlich, geht immer vor.
+2. **Letzter bekannter Stand aus `data.json`**: Meldet die API einen anderen Verein, wird
+   das **nicht** uebernommen, sondern nur als Warnung gemeldet (im Actions-Protokoll).
+3. **API**: nur fuer Spieler, die noch gar keinen Stand haben, oder wenn der Verein fehlt
+   und auch kein frueherer Stand existiert.
+
+Ein echter Transfer wird also von Hand eingetragen:
+
+```json
+"scorerClubs": {"Nicolas Bürgy": "FC Thun"}
+```
+
+Vereinsname genau wie unter `clubs`; Tippfehler meldet `build.py`. Die Zuordnung auf
+transfermarkt.com ist eine gute Gegenprobe.
 
 Alle anderen Daten dieser Seite (Resultate, Tabelle, Tore, Zuschauer) stammen aus
 `/v1/eventItems` und waren durchgehend stabil und mit dem offiziellen SRF-Klassement
