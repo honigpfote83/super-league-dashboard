@@ -1,0 +1,89 @@
+name: Dashboard aktualisieren
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"   # alle 10 Min. — due.py laesst nur waehrend Spielen laufen
+    - cron: "7 * * * *"      # stuendlich in jedem Fall
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: dashboard
+  cancel-in-progress: false
+
+env:
+  TZ: Europe/Zurich
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write        # data.json zurueckschreiben
+    outputs:
+      deploy: ${{ steps.build.outputs.deploy }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Lauf faellig?
+        id: due
+        env:
+          FORCE: ${{ github.event_name != 'schedule' || github.event.schedule == '7 * * * *' }}
+        run: |
+          if [ "$FORCE" = "true" ]; then python due.py --force; else python due.py; fi >> "$GITHUB_OUTPUT"
+
+      - name: Daten holen und Seite bauen
+        id: build
+        if: steps.due.outputs.run == 'true'
+        run: |
+          fp() { python -c 'import json; print(json.load(open("data.json")).get("fingerprint", ""))'; }
+          before=$(fp)
+          python build.py 2>&1 | tee build.log
+          sed -n 's/^  WARNUNG: /::warning::/p' build.log
+          after=$(fp)
+          changed=false; [ "$before" != "$after" ] && changed=true
+          deploy=$changed; [ "$GITHUB_EVENT_NAME" != "schedule" ] && deploy=true
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
+          echo "deploy=$deploy" >> "$GITHUB_OUTPUT"
+
+      - name: Neuen Datenstand committen
+        if: steps.build.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git commit -m "Daten: Stand $(python -c 'import json; print(json.load(open("data.json"))["updated"])')"
+          for i in 1 2 3; do git push && exit 0; git pull --rebase; done
+          exit 1
+
+      - name: Webseite zusammenstellen
+        if: steps.build.outputs.deploy == 'true'
+        run: |
+          mkdir -p _site
+          cp super-league-dashboard.html _site/index.html
+          cp -R web-logos _site/
+          python -c 'import json; d = json.load(open("data.json")); print(json.dumps({"fingerprint": d["fingerprint"], "updated": d["updated"]}))' > _site/version.json
+
+      - uses: actions/upload-pages-artifact@v5
+        if: steps.build.outputs.deploy == 'true'
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v5

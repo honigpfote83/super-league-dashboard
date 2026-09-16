@@ -3,44 +3,57 @@
 Punkteverlauf und abgeleitete Statistiken der Schweizer Super League, gerechnet aus
 den Einzelresultaten des SRF Resultcenters.
 
-**Live:** https://claude.ai/code/artifact/7996fa1d-ab32-48f8-93b3-84defa8d0bab
+**Live:** https://honigpfote83.github.io/super-league-dashboard/
 
-## Aktualisieren
+## Wie die Seite aktuell bleibt
 
-Claude Code in diesem Ordner starten und sagen:
+Alles läuft von selbst über GitHub Actions (`.github/workflows/update.yml`):
 
-> Aktualisiere das Dashboard.
+1. Der Workflow startet alle 10 Minuten. `due.py` schaut in `data.json`, ob gerade ein
+   Spiel läuft oder in den nächsten 10 Minuten beginnt (Anstoss −10 bis +150 Min.). Nur dann
+   wird die API abgefragt. Unabhängig davon gibt es einen stündlichen Lauf (Minute 7).
+2. `build.py` holt die Daten wie bisher und prüft sie. Warnungen erscheinen als gelbe
+   Hinweise im Actions-Protokoll.
+3. Hat sich der Fingerabdruck geändert, committet der Workflow `data.json` und
+   veröffentlicht die Seite neu auf GitHub Pages. Mit `index.html` wird eine kleine
+   `version.json` ausgeliefert.
+4. Die geöffnete Seite fragt beim Laden, alle 3 Minuten und beim Zurückwechseln in den Tab
+   `version.json` ab. Gibt es einen neuen Stand, lädt sie sich neu und behält dabei die
+   ausgewählten Teams, die x-Achse und die Scrollposition.
 
-Das ist alles. Claude ruft `python3 build.py` auf und publiziert bei neuen Daten neu.
+Jeder Push auf `main` (z.B. eine Änderung an `template.html` oder `clubs.json`) baut und
+veröffentlicht sofort. Von Hand anstossen: Actions → „Dashboard aktualisieren“ → *Run workflow*,
+oder `gh workflow run update.yml`.
 
-Von Hand geht es genauso:
+Lokal ansehen:
 
 ```sh
 python3 build.py
+open super-league-dashboard.html
 ```
 
-Die letzte Ausgabezeile ist `CHANGED` oder `UNCHANGED`. Bei `CHANGED` muss
-`super-league-dashboard.html` mit dem Artifact-Werkzeug auf die obige URL publiziert
-werden (`file_path` und `url` setzen, sonst nichts — die bereits publizierten Logos
-unter `web-logos/` bleiben dann erhalten).
+Die letzte Ausgabezeile ist `CHANGED` oder `UNCHANGED`. Die erzeugte HTML-Datei wird nicht
+mehr eingecheckt, sie entsteht im Workflow.
 
-Es läuft bewusst **kein** Zeitplan und keine Automatik.
+**Hinweis:** GitHub deaktiviert zeitgesteuerte Workflows in öffentlichen Repos nach 60 Tagen
+ohne Aktivität im Repo. In der Saison committet der Workflow laufend selbst. Nach einer
+langen Pause (Sommer) im Tab *Actions* prüfen, ob der Workflow noch aktiv ist.
 
 ## Dateien
 
 | Datei | Zweck |
 |---|---|
-| `build.py` | Holt die Daten, prüft sie und rendert das Dashboard. Einziges Skript, das man braucht. |
+| `build.py` | Holt die Daten, prüft sie und rendert das Dashboard. |
+| `due.py` | Entscheidet ohne API-Abruf, ob ein Lauf gerade nötig ist. |
+| `.github/workflows/update.yml` | Zeitplan, Build, Commit von `data.json`, Deploy auf Pages. |
 | `template.html` | Die Seite. Enthält den Platzhalter `__DATA__`, den `build.py` mit den Daten füllt. |
 | `clubs.json` | Vereinsfarben (`ink`) und Logodateinamen. Von Hand gepflegt. |
 | `logos/` | Original-Logodateien von FootyLogos.com. Werden nie verändert. |
-| `web-logos/` | Von `build.py` erzeugte, publizierbare Kopien (SVGs ohne DOCTYPE/Skripte). Nicht von Hand bearbeiten. |
-| `data.json` | Letzter Datenstand inkl. Fingerabdruck für die Änderungserkennung. |
-| `super-league-dashboard.html` | Das fertige Dashboard. Diese Datei wird publiziert. |
+| `web-logos/` | Von `build.py` erzeugte, publizierbare Kopien (SVGs ohne DOCTYPE/Skripte). Nicht eingecheckt. |
+| `data.json` | Letzter Datenstand inkl. Fingerabdruck für die Änderungserkennung. Wird vom Workflow committet. |
 
 Ein neues Logo austauschen: Datei in `logos/` legen, den Namen in `clubs.json` eintragen,
-`build.py` laufen lassen. Beim Publizieren muss die geänderte Datei aus `web-logos/` dann
-einmal mitgegeben werden.
+committen und pushen.
 
 ## Spieler, die die Liga verlassen
 

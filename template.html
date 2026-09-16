@@ -669,10 +669,19 @@ function setSel(list){
 document.getElementById("sel-top6").onclick = () => setSel(TABLE.slice(0,6).map(r => r.team));
 document.getElementById("sel-bottom6").onclick = () => setSel(TABLE.slice(6).map(r => r.team));
 document.getElementById("sel-none").onclick = () => setSel([]);
-TABLE.slice(0,6).forEach(r => assign(r.team));
+/* Nach einem automatischen Neuladen die Auswahl von vorher wiederherstellen */
+const RESTORE_KEY = "sl-restore";
+let RESTORE = null;
+try { RESTORE = JSON.parse(sessionStorage.getItem(RESTORE_KEY)); sessionStorage.removeItem(RESTORE_KEY); } catch (e) {}
+if (RESTORE && Array.isArray(RESTORE.sel)){
+  RESTORE.sel.forEach(p => { if (ROW[p[0]] && p[1] >= 0 && p[1] < SLOTS) assigned.set(p[0], p[1]); });
+} else {
+  TABLE.slice(0,6).forEach(r => assign(r.team));
+}
 renderChips();
 document.getElementById("x-round").onclick = () => setX("round");
 document.getElementById("x-game").onclick = () => setX("game");
+if (RESTORE && RESTORE.x === "game") setX("game");
 function setX(m){
   xMode = m;
   document.getElementById("x-round").setAttribute("aria-pressed", m === "round");
@@ -1268,5 +1277,52 @@ mount("c-outcome", drawOutcome);
       markHTML(m.away, 20) + esc(m.away) + "</span></td></tr>";
   });
   document.getElementById("t-next").innerHTML = "<table>" + h + "</tbody></table>";
+})();
+
+if (RESTORE && typeof RESTORE.y === "number") scrollTo(0, RESTORE.y);
+
+/* ================= Automatische Aktualisierung =================
+   Auf der Webseite liegt neben index.html eine version.json mit dem Fingerabdruck
+   des aktuellen Datenstands. Weicht er von dem ab, mit dem diese Seite gebaut wurde,
+   wird neu geladen — mit ?v=<Fingerabdruck>, damit der CDN-Cache (GitHub Pages:
+   10 Minuten) nicht die alte Seite ausliefert. Ohne version.json (lokal geöffnet,
+   Artifact) passiert nichts. */
+(function autoRefresh(){
+  if (!/^https?:$/.test(location.protocol)) return;
+  const EVERY = 3 * 60 * 1000, TRIED = "sl-tried";
+  const url = new URL(location.href);
+  if (url.searchParams.get("v") === D.fingerprint){
+    url.searchParams.delete("v");                 // Adresse zum Teilen sauber halten
+    history.replaceState(null, "", url.href);
+  }
+  let busy = false;
+  async function check(){
+    if (busy || document.hidden) return;
+    busy = true;
+    try {
+      const r = await fetch("version.json?t=" + Date.now(), {cache: "no-store"});
+      if (!r.ok) return;
+      const v = await r.json();
+      if (!v.fingerprint || v.fingerprint === D.fingerprint) return;
+      // Schutz vor Endlosschleife, falls trotzdem die alte Seite zurückkommt
+      try {
+        if (sessionStorage.getItem(TRIED) === v.fingerprint) return;
+        sessionStorage.setItem(TRIED, v.fingerprint);
+        sessionStorage.setItem(RESTORE_KEY, JSON.stringify({
+          sel: Array.from(assigned.entries()), x: xMode, y: scrollY
+        }));
+      } catch (e) {}
+      const next = new URL(location.href);
+      next.searchParams.set("v", v.fingerprint);
+      location.replace(next.href);
+    } catch (e) {
+      /* offline oder version.json fehlt: beim nächsten Mal wieder */
+    } finally {
+      busy = false;
+    }
+  }
+  check();
+  setInterval(check, EVERY);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) check(); });
 })();
 </script>

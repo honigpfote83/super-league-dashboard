@@ -5,3 +5,8 @@ update.log.1
 .needs-publish
 __pycache__/
 .DS_Store
+
+# Wird im GitHub-Workflow gebaut und ueber Pages ausgeliefert
+super-league-dashboard.html
+_site/
+build.log
