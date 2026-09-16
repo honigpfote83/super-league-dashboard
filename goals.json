@@ -622,6 +622,55 @@
   ],
   "home": "FC Luzern"
  },
+ "1844907": {
+  "away": "Servette FC",
+  "dt": "2026-09-16T19:00:00",
+  "goals": [
+   {
+    "min": "4'",
+    "name": "Kingstone Mutandwa",
+    "player": 1144850,
+    "team": "Servette FC",
+    "type": "goal"
+   },
+   {
+    "min": "29'",
+    "name": "Mathis Lambourde",
+    "player": 1114884,
+    "team": "Servette FC",
+    "type": "goal"
+   },
+   {
+    "min": "38'",
+    "name": "Fabio Saiz",
+    "player": 1083269,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "54'",
+    "name": "Fabio Saiz",
+    "player": 1083269,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "65'",
+    "name": "Téo Allix",
+    "player": 1105944,
+    "team": "Servette FC",
+    "type": "goal"
+   },
+   {
+    "min": "86'",
+    "name": "Datro Fofana",
+    "player": 1144783,
+    "team": "Servette FC",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Thun"
+ },
  "1844908": {
   "away": "FC Basel 1893",
   "dt": "2026-08-22T20:30:00",
@@ -705,6 +754,48 @@
    }
   ],
   "home": "Grasshopper Club Zürich"
+ },
+ "1844910": {
+  "away": "FC St.Gallen 1879",
+  "dt": "2026-09-16T19:00:00",
+  "goals": [
+   {
+    "min": "4'",
+    "name": "Beckham Castro",
+    "player": 1141955,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "14'",
+    "name": "Elias Pihlström",
+    "player": 1134740,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "28'",
+    "name": "Elias Pihlström",
+    "player": 1134740,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "36'",
+    "name": "Karimov",
+    "player": 1143884,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "74'",
+    "name": "Andrin Hunziker",
+    "player": 1089356,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Lugano"
  },
  "1844911": {
   "away": "FC Vaduz",
