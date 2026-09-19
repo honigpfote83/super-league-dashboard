@@ -1628,5 +1628,117 @@
    }
   ],
   "home": "FC Zürich"
+ },
+ "1844936": {
+  "away": "Grasshopper Club Zürich",
+  "dt": "2026-09-19T18:00:00",
+  "goals": [
+   {
+    "min": "5'",
+    "name": "Tyron Owusu",
+    "player": 1082930,
+    "team": "FC Luzern",
+    "type": "goal"
+   },
+   {
+    "min": "9'",
+    "name": "Oscar Kabwit",
+    "player": 1136665,
+    "team": "FC Luzern",
+    "type": "goal"
+   },
+   {
+    "min": "60'",
+    "name": "Daniel Mikolajewski",
+    "player": 1143744,
+    "team": "FC Luzern",
+    "type": "penaltyGoal"
+   },
+   {
+    "min": "73'",
+    "name": "Daniel Mikolajewski",
+    "player": 1143744,
+    "team": "FC Luzern",
+    "type": "goal"
+   },
+   {
+    "min": "76'",
+    "name": "Samuele Bengondo",
+    "player": 1137378,
+    "team": "Grasshopper Club Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "86'",
+    "name": "Daniel Mikolajewski",
+    "player": 1143744,
+    "team": "FC Luzern",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Luzern"
+ },
+ "1844937": {
+  "away": "FC Zürich",
+  "dt": "2026-09-19T18:00:00",
+  "goals": [
+   {
+    "min": "5'",
+    "name": "Philippe Kény",
+    "player": 1106082,
+    "team": "FC Zürich",
+    "type": "penaltyGoal"
+   },
+   {
+    "min": "38'",
+    "name": "Winsley Boteli",
+    "player": 1133498,
+    "team": "FC Sion",
+    "type": "penaltyGoal"
+   }
+  ],
+  "home": "FC Sion"
+ },
+ "1844938": {
+  "away": "Servette FC",
+  "dt": "2026-09-19T18:00:00",
+  "goals": [
+   {
+    "min": "13'",
+    "name": "Marco Burch",
+    "player": 1078879,
+    "team": "Servette FC",
+    "type": "goal"
+   },
+   {
+    "min": "30'",
+    "name": "Kingstone Mutandwa",
+    "player": 1144850,
+    "team": "Servette FC",
+    "type": "goal"
+   },
+   {
+    "min": "39'",
+    "name": "Alan Virginius",
+    "player": 1088443,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "69'",
+    "name": "Samuel Essende",
+    "player": 1101713,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "83'",
+    "name": "Samuel Essende",
+    "player": 1101713,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   }
+  ],
+  "home": "BSC Young Boys"
  }
 }
