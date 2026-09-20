@@ -1740,5 +1740,96 @@
    }
   ],
   "home": "BSC Young Boys"
+ },
+ "1844939": {
+  "away": "FC St.Gallen 1879",
+  "dt": "2026-09-20T16:30:00",
+  "goals": [
+   {
+    "min": "9'",
+    "name": "Aliou Baldé",
+    "player": 1109461,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   },
+   {
+    "min": "43'",
+    "name": "Zan Celar",
+    "player": 134322,
+    "team": "FC Basel 1893",
+    "type": "penaltyGoal"
+   },
+   {
+    "min": "65'",
+    "name": "Christian Witzig",
+    "player": 1093439,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   },
+   {
+    "min": "85'",
+    "name": "Carlo Boukhalfa",
+    "player": 1085275,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Basel 1893"
+ },
+ "1844940": {
+  "away": "FC Lugano",
+  "dt": "2026-09-20T16:30:00",
+  "goals": [
+   {
+    "min": "35'",
+    "name": "Hannes Delcroix",
+    "player": 127140,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "48'",
+    "name": "Hannes Delcroix",
+    "player": 127140,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "52'",
+    "name": "Hannes Delcroix",
+    "player": 127140,
+    "team": "FC Lugano",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Lausanne-Sport"
+ },
+ "1844941": {
+  "away": "FC Thun",
+  "dt": "2026-09-20T14:00:00",
+  "goals": [
+   {
+    "min": "33'",
+    "name": "Furkan Dursun",
+    "player": 1124513,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "49'",
+    "name": "Nils Reichmuth",
+    "player": 1082910,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "73'",
+    "name": "Marcel Monsberger",
+    "player": 1133448,
+    "team": "FC Vaduz",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Vaduz"
  }
 }
