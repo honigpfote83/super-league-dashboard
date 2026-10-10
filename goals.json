@@ -1831,5 +1831,110 @@
    }
   ],
   "home": "FC Vaduz"
+ },
+ "1844942": {
+  "away": "FC Luzern",
+  "dt": "2026-10-10T18:00:00",
+  "goals": [
+   {
+    "min": "12'",
+    "name": "Daniel Dos Santos",
+    "player": 1089012,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "78'",
+    "name": "Daniel Dos Santos",
+    "player": 1089012,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "87'",
+    "name": "Dereck Moncada",
+    "player": 1140014,
+    "team": "FC Lugano",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Lugano"
+ },
+ "1844943": {
+  "away": "FC Sion",
+  "dt": "2026-10-10T18:00:00",
+  "goals": [
+   {
+    "min": "11'",
+    "name": "Houboulang Mendes",
+    "player": 130600,
+    "team": "Servette FC",
+    "type": "goal"
+   },
+   {
+    "min": "18'",
+    "name": "Jarell Simo",
+    "player": 1116349,
+    "team": "Servette FC",
+    "type": "goal"
+   },
+   {
+    "min": "63'",
+    "name": "Kingstone Mutandwa",
+    "player": 1144850,
+    "team": "Servette FC",
+    "type": "penaltyGoal"
+   }
+  ],
+  "home": "Servette FC"
+ },
+ "1844944": {
+  "away": "FC Thun",
+  "dt": "2026-10-10T18:00:00",
+  "goals": [
+   {
+    "min": "16'",
+    "name": "Simon Lengen",
+    "player": 1141974,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "30'",
+    "name": "Kevin Spadanuda",
+    "player": 1072027,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "37'",
+    "name": "Bledian Krasniqi",
+    "player": 1049657,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "64'",
+    "name": "Doron Lichtenstein",
+    "player": 1143524,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "77'",
+    "name": "Philippe Kény",
+    "player": 1106082,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "90'",
+    "name": "Dorian Derbaci",
+    "player": 1112799,
+    "team": "FC Thun",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Zürich"
  }
 }
