@@ -1957,5 +1957,47 @@
    }
   ],
   "home": "Grasshopper Club Zürich"
+ },
+ "1844946": {
+  "away": "FC Lausanne-Sport",
+  "dt": "2026-10-11T16:30:00",
+  "goals": [
+   {
+    "min": "29'",
+    "name": "Lukas Görtler",
+    "player": 79060,
+    "team": "FC St.Gallen 1879",
+    "type": "penaltyGoal"
+   }
+  ],
+  "home": "FC St.Gallen 1879"
+ },
+ "1844947": {
+  "away": "FC Basel 1893",
+  "dt": "2026-10-11T16:30:00",
+  "goals": [
+   {
+    "min": "26'",
+    "name": "Marcel Monsberger",
+    "player": 1133448,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "36'",
+    "name": "Marcel Monsberger",
+    "player": 1133448,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "68'",
+    "name": "Lutfi Dalipi",
+    "player": 1131859,
+    "team": "FC Vaduz",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Vaduz"
  }
 }
