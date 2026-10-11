@@ -1936,5 +1936,26 @@
    }
   ],
   "home": "FC Zürich"
+ },
+ "1844945": {
+  "away": "BSC Young Boys",
+  "dt": "2026-10-11T14:00:00",
+  "goals": [
+   {
+    "min": "49'",
+    "name": "Samuel Essende",
+    "player": 1101713,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "52'",
+    "name": "Christian Fassnacht",
+    "player": 77876,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   }
+  ],
+  "home": "Grasshopper Club Zürich"
  }
 }
