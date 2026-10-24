@@ -2028,6 +2028,27 @@
   ],
   "home": "Servette FC"
  },
+ "1844952": {
+  "away": "FC St.Gallen 1879",
+  "dt": "2026-10-24T20:30:00",
+  "goals": [
+   {
+    "min": "59'",
+    "name": "Samuel Essende",
+    "player": 1101713,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "64'",
+    "name": "Herba Guirassy",
+    "player": 1137715,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   }
+  ],
+  "home": "BSC Young Boys"
+ },
  "1844953": {
   "away": "FC Luzern",
   "dt": "2026-10-24T18:00:00",
