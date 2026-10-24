@@ -1999,5 +1999,54 @@
    }
   ],
   "home": "FC Vaduz"
+ },
+ "1844949": {
+  "away": "FC Vaduz",
+  "dt": "2026-10-24T18:00:00",
+  "goals": [
+   {
+    "min": "15'",
+    "name": "Thomas Lopes",
+    "player": 1138150,
+    "team": "Servette FC",
+    "type": "goal"
+   },
+   {
+    "min": "77'",
+    "name": "Lutfi Dalipi",
+    "player": 1131859,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "85'",
+    "name": "Kingstone Mutandwa",
+    "player": 1144850,
+    "team": "Servette FC",
+    "type": "goal"
+   }
+  ],
+  "home": "Servette FC"
+ },
+ "1844953": {
+  "away": "FC Luzern",
+  "dt": "2026-10-24T18:00:00",
+  "goals": [
+   {
+    "min": "26'",
+    "name": "Philippe Kény",
+    "player": 1106082,
+    "team": "FC Zürich",
+    "type": "penaltyGoal"
+   },
+   {
+    "min": "71'",
+    "name": "Oscar Kabwit",
+    "player": 1136665,
+    "team": "FC Luzern",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Zürich"
  }
 }
