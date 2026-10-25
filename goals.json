@@ -2028,6 +2028,48 @@
   ],
   "home": "Servette FC"
  },
+ "1844951": {
+  "away": "FC Lugano",
+  "dt": "2026-10-25T14:00:00",
+  "goals": [
+   {
+    "min": "34'",
+    "name": "Dereck Moncada",
+    "player": 1140014,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "37'",
+    "name": "Nassim Zoukit",
+    "player": 1099718,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "49'",
+    "name": "Uran Bislimi",
+    "player": 1068198,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "76'",
+    "name": "Albian Ajeti",
+    "player": 69904,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "88'",
+    "name": "Riccardo Braschi",
+    "player": 1135932,
+    "team": "FC Thun",
+    "type": "penaltyGoal"
+   }
+  ],
+  "home": "FC Thun"
+ },
  "1844952": {
   "away": "FC St.Gallen 1879",
   "dt": "2026-10-24T20:30:00",
