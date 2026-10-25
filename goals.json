@@ -2000,6 +2000,12 @@
   ],
   "home": "FC Vaduz"
  },
+ "1844948": {
+  "away": "Grasshopper Club Zürich",
+  "dt": "2026-10-25T16:30:00",
+  "goals": [],
+  "home": "FC Basel 1893"
+ },
  "1844949": {
   "away": "FC Vaduz",
   "dt": "2026-10-24T18:00:00",
@@ -2027,6 +2033,20 @@
    }
   ],
   "home": "Servette FC"
+ },
+ "1844950": {
+  "away": "FC Lausanne-Sport",
+  "dt": "2026-10-25T16:30:00",
+  "goals": [
+   {
+    "min": "33'",
+    "name": "Théo Berdayes",
+    "player": 1088800,
+    "team": "FC Sion",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Sion"
  },
  "1844951": {
   "away": "FC Lugano",
