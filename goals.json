@@ -2167,6 +2167,20 @@
   ],
   "home": "Grasshopper Club Zürich"
  },
+ "1844957": {
+  "away": "FC Sion",
+  "dt": "2026-10-31T20:30:00",
+  "goals": [
+   {
+    "min": "79'",
+    "name": "Rilind Nivokazi",
+    "player": 1096789,
+    "team": "FC Sion",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Luzern"
+ },
  "1844958": {
   "away": "Servette FC",
   "dt": "2026-10-31T18:00:00",
