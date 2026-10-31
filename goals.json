@@ -2131,5 +2131,68 @@
    }
   ],
   "home": "FC Zürich"
+ },
+ "1844954": {
+  "away": "FC Vaduz",
+  "dt": "2026-10-31T18:00:00",
+  "goals": [
+   {
+    "min": "15'",
+    "name": "Liridon Berisha",
+    "player": 1053578,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "24'",
+    "name": "Manex Guibelalde",
+    "player": 1144460,
+    "team": "Grasshopper Club Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "64'",
+    "name": "Juan Cabrera",
+    "player": 1130075,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "88'",
+    "name": "Young-Jun Lee",
+    "player": 1124793,
+    "team": "Grasshopper Club Zürich",
+    "type": "goal"
+   }
+  ],
+  "home": "Grasshopper Club Zürich"
+ },
+ "1844958": {
+  "away": "Servette FC",
+  "dt": "2026-10-31T18:00:00",
+  "goals": [
+   {
+    "min": "6'",
+    "name": "Carlo Boukhalfa",
+    "player": 1085275,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   },
+   {
+    "min": "65'",
+    "name": "Lukas Görtler",
+    "player": 79060,
+    "team": "FC St.Gallen 1879",
+    "type": "penaltyGoal"
+   },
+   {
+    "min": "82'",
+    "name": "Jesper Karlsson",
+    "player": 1144952,
+    "team": "Servette FC",
+    "type": "goal"
+   }
+  ],
+  "home": "FC St.Gallen 1879"
  }
 }
