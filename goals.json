@@ -2208,5 +2208,68 @@
    }
   ],
   "home": "FC St.Gallen 1879"
+ },
+ "1844959": {
+  "away": "FC Zürich",
+  "dt": "2026-11-01T14:00:00",
+  "goals": [
+   {
+    "min": "12'",
+    "name": "Philippe Kény",
+    "player": 1106082,
+    "team": "FC Zürich",
+    "type": "penaltyGoal"
+   },
+   {
+    "min": "22'",
+    "name": "Samuel Essende",
+    "player": 1101713,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "25'",
+    "name": "Umeh Emmanuel",
+    "player": 1123201,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "29'",
+    "name": "Samuel Essende",
+    "player": 1101713,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "40'",
+    "name": "Alvyn Sanches",
+    "player": 1087013,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "60'",
+    "name": "Livano Comenencia",
+    "player": 1114503,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "82'",
+    "name": "Selmin Hodza",
+    "player": 1100564,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "90'+2",
+    "name": "Umeh Emmanuel",
+    "player": 1123201,
+    "team": "FC Zürich",
+    "type": "goal"
+   }
+  ],
+  "home": "BSC Young Boys"
  }
 }
