@@ -2167,6 +2167,90 @@
   ],
   "home": "Grasshopper Club Zürich"
  },
+ "1844955": {
+  "away": "FC Thun",
+  "dt": "2026-11-01T16:30:00",
+  "goals": [
+   {
+    "min": "12'",
+    "name": "Furkan Dursun",
+    "player": 1124513,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "36'",
+    "name": "Omar Janneh",
+    "player": 1132019,
+    "team": "FC Lausanne-Sport",
+    "type": "penaltyGoal"
+   },
+   {
+    "min": "45'+1",
+    "name": "Omar Janneh",
+    "player": 1132019,
+    "team": "FC Lausanne-Sport",
+    "type": "goal"
+   },
+   {
+    "min": "53'",
+    "name": "Enzo Molebe",
+    "player": 1125956,
+    "team": "FC Lausanne-Sport",
+    "type": "goal"
+   },
+   {
+    "min": "70'",
+    "name": "Brighton Labeau",
+    "player": 1094668,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "81'",
+    "name": "Riccardo Braschi",
+    "player": 1135932,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "90'+6",
+    "name": "Brighton Labeau",
+    "player": 1094668,
+    "team": "FC Thun",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Lausanne-Sport"
+ },
+ "1844956": {
+  "away": "FC Basel 1893",
+  "dt": "2026-11-01T16:30:00",
+  "goals": [
+   {
+    "min": "10'",
+    "name": "Daniel Dos Santos",
+    "player": 1089012,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "26'",
+    "name": "Yanis Cimignani",
+    "player": 1088381,
+    "team": "FC Lugano",
+    "type": "goal"
+   },
+   {
+    "min": "37'",
+    "name": "Philip Otele",
+    "player": 1064880,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Lugano"
+ },
  "1844957": {
   "away": "FC Sion",
   "dt": "2026-10-31T20:30:00",
