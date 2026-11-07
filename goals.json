@@ -2355,5 +2355,82 @@
    }
   ],
   "home": "BSC Young Boys"
+ },
+ "1844961": {
+  "away": "BSC Young Boys",
+  "dt": "2026-11-07T18:00:00",
+  "goals": [
+   {
+    "min": "22'",
+    "name": "Christian Fassnacht",
+    "player": 77876,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "38'",
+    "name": "Matteo Di Giusto",
+    "player": 1072025,
+    "team": "FC Luzern",
+    "type": "penaltyGoal"
+   },
+   {
+    "min": "64'",
+    "name": "Herba Guirassy",
+    "player": 1137715,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   },
+   {
+    "min": "82'",
+    "name": "Levin Winkler",
+    "player": 1119025,
+    "team": "FC Luzern",
+    "type": "goal"
+   },
+   {
+    "min": "90'+2",
+    "name": "Samuel Essende",
+    "player": 1101713,
+    "team": "BSC Young Boys",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Luzern"
+ },
+ "1844965": {
+  "away": "FC Sion",
+  "dt": "2026-11-07T18:00:00",
+  "goals": [
+   {
+    "min": "11'",
+    "name": "Rilind Nivokazi",
+    "player": 1096789,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "15'",
+    "name": "Rilind Nivokazi",
+    "player": 1096789,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "34'",
+    "name": "Ilyas Chouaref",
+    "player": 1049923,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "54'",
+    "name": "Théo Berdayes",
+    "player": 1088800,
+    "team": "FC Sion",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Vaduz"
  }
 }
