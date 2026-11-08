@@ -2356,6 +2356,27 @@
   ],
   "home": "BSC Young Boys"
  },
+ "1844960": {
+  "away": "FC Lausanne-Sport",
+  "dt": "2026-11-07T20:30:00",
+  "goals": [
+   {
+    "min": "29'",
+    "name": "Kenzo Goudmijn",
+    "player": 1074190,
+    "team": "Grasshopper Club Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "85'",
+    "name": "Seydou Traoré",
+    "player": 1112781,
+    "team": "FC Lausanne-Sport",
+    "type": "goal"
+   }
+  ],
+  "home": "Grasshopper Club Zürich"
+ },
  "1844961": {
   "away": "BSC Young Boys",
   "dt": "2026-11-07T18:00:00",
