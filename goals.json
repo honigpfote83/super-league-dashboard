@@ -2419,6 +2419,48 @@
   ],
   "home": "FC Luzern"
  },
+ "1844963": {
+  "away": "FC Lugano",
+  "dt": "2026-11-08T14:00:00",
+  "goals": [
+   {
+    "min": "33'",
+    "name": "Chima Okoroji",
+    "player": 142034,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   },
+   {
+    "min": "34'",
+    "name": "Andrin Hunziker",
+    "player": 1089356,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   },
+   {
+    "min": "45'+2",
+    "name": "Tom Gaal",
+    "player": 1098234,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   },
+   {
+    "min": "66'",
+    "name": "Andrin Hunziker",
+    "player": 1089356,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   },
+   {
+    "min": "84'",
+    "name": "Leon Frokaj",
+    "player": 1119197,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   }
+  ],
+  "home": "FC St.Gallen 1879"
+ },
  "1844965": {
   "away": "FC Sion",
   "dt": "2026-11-07T18:00:00",
