@@ -2419,6 +2419,12 @@
   ],
   "home": "FC Luzern"
  },
+ "1844962": {
+  "away": "FC Zürich",
+  "dt": "2026-11-08T16:30:00",
+  "goals": [],
+  "home": "Servette FC"
+ },
  "1844963": {
   "away": "FC Lugano",
   "dt": "2026-11-08T14:00:00",
@@ -2460,6 +2466,48 @@
    }
   ],
   "home": "FC St.Gallen 1879"
+ },
+ "1844964": {
+  "away": "FC Basel 1893",
+  "dt": "2026-11-08T16:30:00",
+  "goals": [
+   {
+    "min": "1'",
+    "name": "Zan Celar",
+    "player": 134322,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   },
+   {
+    "min": "12'",
+    "name": "Philip Otele",
+    "player": 1064880,
+    "team": "FC Basel 1893",
+    "type": "goal"
+   },
+   {
+    "min": "16'",
+    "name": "Brighton Labeau",
+    "player": 1094668,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "39'",
+    "name": "Nils Reichmuth",
+    "player": 1082910,
+    "team": "FC Thun",
+    "type": "goal"
+   },
+   {
+    "min": "55'",
+    "name": "Zan Celar",
+    "player": 134322,
+    "team": "FC Basel 1893",
+    "type": "penaltyGoal"
+   }
+  ],
+  "home": "FC Thun"
  },
  "1844965": {
   "away": "FC Sion",
