@@ -2572,6 +2572,27 @@
   ],
   "home": "FC Lugano"
  },
+ "1844969": {
+  "away": "Servette FC",
+  "dt": "2026-11-21T20:30:00",
+  "goals": [
+   {
+    "min": "51'",
+    "name": "Donat Rrudhani",
+    "player": 1072028,
+    "team": "FC Sion",
+    "type": "goal"
+   },
+   {
+    "min": "70'",
+    "name": "Rilind Nivokazi",
+    "player": 1096789,
+    "team": "FC Sion",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Sion"
+ },
  "1844970": {
   "away": "FC Thun",
   "dt": "2026-11-21T18:00:00",
