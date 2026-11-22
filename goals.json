@@ -2544,6 +2544,62 @@
   ],
   "home": "FC Vaduz"
  },
+ "1844966": {
+  "away": "FC Luzern",
+  "dt": "2026-11-22T16:30:00",
+  "goals": [
+   {
+    "min": "39'",
+    "name": "Oscar Kabwit",
+    "player": 1136665,
+    "team": "FC Luzern",
+    "type": "goal"
+   },
+   {
+    "min": "86'",
+    "name": "Ruben Dantas",
+    "player": 1111040,
+    "team": "FC Luzern",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Basel 1893"
+ },
+ "1844967": {
+  "away": "FC Vaduz",
+  "dt": "2026-11-22T16:30:00",
+  "goals": [
+   {
+    "min": "68'",
+    "name": "Ibrahim Bah Mendes",
+    "player": 1137309,
+    "team": "FC Lausanne-Sport",
+    "type": "goal"
+   },
+   {
+    "min": "78'",
+    "name": "Lutfi Dalipi",
+    "player": 1131859,
+    "team": "FC Vaduz",
+    "type": "goal"
+   },
+   {
+    "min": "81'",
+    "name": "Olivier Custodio",
+    "player": 62219,
+    "team": "FC Lausanne-Sport",
+    "type": "goal"
+   },
+   {
+    "min": "90'+2",
+    "name": "Marcel Monsberger",
+    "player": 1133448,
+    "team": "FC Vaduz",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Lausanne-Sport"
+ },
  "1844968": {
   "away": "Grasshopper Club Zürich",
   "dt": "2026-11-21T18:00:00",
