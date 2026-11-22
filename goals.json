@@ -2634,5 +2634,40 @@
    }
   ],
   "home": "BSC Young Boys"
+ },
+ "1844971": {
+  "away": "FC St.Gallen 1879",
+  "dt": "2026-11-22T14:00:00",
+  "goals": [
+   {
+    "min": "24'",
+    "name": "Umeh Emmanuel",
+    "player": 1123201,
+    "team": "FC Zürich",
+    "type": "goal"
+   },
+   {
+    "min": "51'",
+    "name": "Andrin Hunziker",
+    "player": 1089356,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   },
+   {
+    "min": "77'",
+    "name": "Andrin Hunziker",
+    "player": 1089356,
+    "team": "FC St.Gallen 1879",
+    "type": "goal"
+   },
+   {
+    "min": "88'",
+    "name": "Alexander Hack",
+    "player": 83854,
+    "team": "FC Zürich",
+    "type": "goal"
+   }
+  ],
+  "home": "FC Zürich"
  }
 }
